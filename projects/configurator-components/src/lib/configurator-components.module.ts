@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { ButtonModule } from './button';
+import { UserModule } from './user';
 
 @NgModule({
   declarations: [
   ],
   imports: [
-    ButtonModule
+    ButtonModule,
+    UserModule
   ],
   exports: [
-    ButtonModule
+    ButtonModule,
+    UserModule
   ]
 })
 export class ConfiguratorComponentsModule { }
