@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ConfiguratorComponentsModule } from 'configurator-components';
+import { ButtonModule } from 'configurator-components';
 import { ConfiguratorCoreModule } from 'configurator-core';
 import { UserFormModule } from './user-form';
 
@@ -14,7 +14,7 @@ import { UserFormModule } from './user-form';
   imports: [
     BrowserModule,
     NoopAnimationsModule,
-    ConfiguratorComponentsModule,
+    ButtonModule,
     ConfiguratorCoreModule,
     UserFormModule
   ],

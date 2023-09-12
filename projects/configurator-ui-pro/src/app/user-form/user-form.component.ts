@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
-import { ConfiguratorComponentsModule } from 'configurator-components';
+import { UserModule } from 'configurator-components';
 
 @Component({
   selector: 'fcp-user-form',
@@ -16,7 +16,7 @@ export class UserFormComponent {
    ],
    imports: [
      CommonModule,
-     ConfiguratorComponentsModule
+     UserModule
    ],
    exports: [
     UserFormComponent
