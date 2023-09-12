@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfiguratorComponentsModule } from 'configurator-components';
 import { ConfiguratorCoreModule } from 'configurator-core';
+import { UserFormModule } from './user-form';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ConfiguratorCoreModule } from 'configurator-core';
     BrowserModule,
     NoopAnimationsModule,
     ConfiguratorComponentsModule,
-    ConfiguratorCoreModule
+    ConfiguratorCoreModule,
+    UserFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
