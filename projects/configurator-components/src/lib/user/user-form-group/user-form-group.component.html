@@ -1,1 +1,11 @@
-<p>user-form-group works!</p>
+<ng-container [formGroup]="userForm">
+   <mat-form-field class="user-form-field">
+      <mat-label>Name:</mat-label>
+      <input matInput type="text" formControlName="name">
+   </mat-form-field>
+   
+   <mat-form-field class="user-form-field">
+      <mat-label>Last Name:</mat-label>
+      <input matInput type="text" formControlName="lastName">
+   </mat-form-field>
+</ng-container>

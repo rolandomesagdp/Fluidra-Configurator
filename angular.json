@@ -129,7 +129,7 @@
               "projects/configurator-ui-pro/src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "@angular/material/prebuilt-themes/purple-green.css",
               "projects/configurator-ui-pro/src/styles.scss"
             ],
             "scripts": []

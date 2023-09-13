@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'configurator-components';
 import { ConfiguratorCoreModule } from 'configurator-core';
-import { UserFormModule } from './user-form';
+import { UserRequestFormModule } from './user-request-form';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,11 @@ import { UserFormModule } from './user-form';
     NoopAnimationsModule,
     ButtonModule,
     ConfiguratorCoreModule,
-    UserFormModule
+    UserRequestFormModule
   ],
-  providers: [],
+  providers: [
+   { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'} }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
