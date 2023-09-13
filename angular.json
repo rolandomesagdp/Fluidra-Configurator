@@ -202,6 +202,11 @@
       }
     },
     "configurator-components": {
+      "schematics": {
+         "@schematics/angular:component": {
+            "style": "scss"
+         }
+      },
       "projectType": "library",
       "root": "projects/configurator-components",
       "sourceRoot": "projects/configurator-components/src",
@@ -236,6 +241,11 @@
     },
     "configurator-core": {
       "projectType": "library",
+      "schematics": {
+         "@schematics/angular:component": {
+           "style": "scss"
+         }
+      },
       "root": "projects/configurator-core",
       "sourceRoot": "projects/configurator-core/src",
       "prefix": "ffc",
