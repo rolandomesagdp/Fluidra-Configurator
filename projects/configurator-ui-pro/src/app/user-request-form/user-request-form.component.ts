@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, NgModule } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { UserModule } from 'configurator-components';
 import { UserRequest } from './user-request';
 import { UserRequestFormBuilder } from './user-request-form-builder';
+import { InputModule, UserModule } from 'configurator-components';
 
 @Component({
   selector: 'fcp-user-request-form',
@@ -31,11 +30,11 @@ export class UserRequestFormComponent {
       UserRequestFormComponent
    ],
    imports: [
-     CommonModule,
-     UserModule,
-     ReactiveFormsModule,
-     MatInputModule,
-     MatButtonModule
+      CommonModule,
+      ReactiveFormsModule,
+      MatButtonModule,
+      UserModule,
+      InputModule
    ],
    exports: [
       UserRequestFormComponent

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ButtonModule } from './button';
 import { UserModule } from './user';
+import { InputModule } from './input';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { UserModule } from './user';
   ],
   exports: [
     ButtonModule,
+    InputModule,
     UserModule
   ]
 })

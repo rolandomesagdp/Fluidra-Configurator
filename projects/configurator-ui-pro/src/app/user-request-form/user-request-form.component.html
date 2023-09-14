@@ -1,12 +1,6 @@
 <form [formGroup]="userRequestForm" (ngSubmit)="onSubmit()">
-   <mat-form-field class="user-form-field">
-      <mat-label>Id:</mat-label>
-      <input matInput type="text" formControlName="requestId">
-   </mat-form-field>
-   <mat-form-field class="user-form-field">
-      <mat-label>Amount:</mat-label>
-      <input matInput type="text" formControlName="requestAmount">
-   </mat-form-field>
+   <fcc-input label="Id" formControlName="requestId"></fcc-input>
+   <fcc-input label="Amount" inputType="number" formControlName="requestAmount"></fcc-input>
    <fcc-user-form-group formGroupName="user"></fcc-user-form-group>
 
    <button type="submit" mat-raised-button color="primary">Save</button>
