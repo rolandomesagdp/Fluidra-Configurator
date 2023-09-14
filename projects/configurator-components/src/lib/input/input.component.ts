@@ -22,7 +22,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
    ngOnInit(): void {
       this.inputValue.valueChanges.subscribe(newValue => {
-         this.onChange(newValue);
+         this.onChange(newValue)
       })
    }
 

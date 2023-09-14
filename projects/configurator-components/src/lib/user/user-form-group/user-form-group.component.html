@@ -1,11 +1,7 @@
-<ng-container [formGroup]="userForm">
-   <mat-form-field class="user-form-field">
-      <mat-label>Name:</mat-label>
-      <input matInput type="text" formControlName="name">
-   </mat-form-field>
+<ng-container [formGroup]="userFormGroup">
+   <fcc-input inputType="text" label="Name" formControlName="name"></fcc-input>
    
-   <mat-form-field class="user-form-field">
-      <mat-label>Last Name:</mat-label>
-      <input matInput type="text" formControlName="lastName">
-   </mat-form-field>
+   <fcc-input inputType="text" label="Last Name" formControlName="lastName"></fcc-input>
+   
+   <ng-content [formGroup]="addressFormGroup" select="[address-form-group]"></ng-content>   
 </ng-container>

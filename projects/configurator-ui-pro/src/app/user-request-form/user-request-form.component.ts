@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { UserRequest } from './user-request';
 import { UserRequestFormBuilder } from './user-request-form-builder';
-import { InputModule, UserModule } from 'configurator-components';
+import { AddressModule, InputModule, UserModule } from 'configurator-components';
 
 @Component({
   selector: 'fcp-user-request-form',
@@ -34,6 +34,7 @@ export class UserRequestFormComponent {
       ReactiveFormsModule,
       MatButtonModule,
       UserModule,
+      AddressModule,
       InputModule
    ],
    exports: [

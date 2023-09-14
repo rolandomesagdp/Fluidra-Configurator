@@ -6,7 +6,12 @@ export class UserRequestFormBuilder {
       requestAmount: 0,
       user: this.formBuilder.group({
          name: "",
-         lastName: ""         
+         lastName: "",
+         address: this.formBuilder.group({
+            street: this.formBuilder.control(""),
+            number: this.formBuilder.control(""),
+            zipCode: this.formBuilder.control("")
+         })        
       })
    })
 

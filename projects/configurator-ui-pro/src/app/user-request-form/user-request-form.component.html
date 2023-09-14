@@ -1,7 +1,11 @@
 <form [formGroup]="userRequestForm" (ngSubmit)="onSubmit()">
    <fcc-input label="Id" formControlName="requestId"></fcc-input>
-   <fcc-input label="Amount" inputType="number" formControlName="requestAmount"></fcc-input>
-   <fcc-user-form-group formGroupName="user"></fcc-user-form-group>
 
-   <button type="submit" mat-raised-button color="primary">Save</button>
+   <fcc-input label="Amount" inputType="number" formControlName="requestAmount"></fcc-input>
+   
+   <fcc-user-form-group formGroupName="user">
+      <fcc-address-form-group formGroupName="address" address-form-group></fcc-address-form-group>
+   </fcc-user-form-group>
+   
+   <button mat-raised-button type="submit" color="primary">Save</button>
 </form>

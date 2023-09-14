@@ -1,25 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AddressFormGroupComponent } from './address-form-group/address-form-group.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-
-import { UserFormGroupComponent } from './user-form-group/user-form-group.component';
-import { AddressModule } from '../address';
 import { InputModule } from '../input';
 
 @NgModule({
   declarations: [
-    UserFormGroupComponent
+   AddressFormGroupComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    InputModule,
     MatInputModule,
-    AddressModule,
-    InputModule
   ],
-  exports: [
-   UserFormGroupComponent
-  ]
+  exports: [ AddressFormGroupComponent ]
 })
-export class UserModule { }
+export class AddressModule { }
