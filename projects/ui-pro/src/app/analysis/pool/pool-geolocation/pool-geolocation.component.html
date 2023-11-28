@@ -1,0 +1,26 @@
+<ng-container *ngIf="poolGeolocationFormManager?.formGroup">
+	<form
+		[formGroup]="poolGeolocationFormManager.formGroup"
+		(ngSubmit)="onSubmit()"
+		class="form_container">
+		<fcc-form-container
+			class="form_content"
+			[title]="'poolGeolocation.title' | translate"
+			[step]="step"
+			[totalSteps]="totalSteps">
+			<fcc-pool-geolocation-form [countryCode]="countryCode" />
+			<fcc-spinner
+				*ngIf="loading"
+				class="loading_spinner"
+				[diameter]="120"
+				color="primary" 
+				[fixed]="true"/>
+		</fcc-form-container>
+
+		<fcc-navigation-buttons
+			[saving]="saving"
+			[step]="step"
+			[totalSteps]="totalSteps"
+			(previousStep)="previousStep()" />
+	</form>
+</ng-container>

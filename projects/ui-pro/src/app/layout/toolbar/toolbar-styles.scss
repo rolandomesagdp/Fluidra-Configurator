@@ -1,0 +1,21 @@
+@import "theme/configurator-breakpoints";
+
+.toolbar_row {
+   flex-wrap: wrap;
+   vertical-align: middle;
+}
+
+ .settings {
+   flex: 1;
+   display: flex;
+   flex-wrap: nowrap;
+   flex-direction: row;
+   gap: 10px;
+   align-content: center;
+   justify-content: flex-end;
+   align-items: center;
+
+   @include max-width("sm") {
+      gap: 0px;
+   }
+}

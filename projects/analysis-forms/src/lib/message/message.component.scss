@@ -1,0 +1,51 @@
+@import "../../../../../theme/configurator-palette";
+
+.message_container {
+	display: flex;
+	padding: 14px 12px;
+	align-items: flex-start;
+	gap: 12px;
+	align-self: stretch;
+	flex: 1 0 0;
+
+	border-radius: 4px;
+	box-shadow: 0px 2px 6px 0px $configurator-shadow;
+	border-left: 3px solid $primary-700;
+	background-color: $background-white;
+
+	& .text_container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		flex: 1 0 0;
+
+		& .no_margin {
+			margin: 0;
+		}
+	}
+
+	& .icon {
+		color: $primary-700;
+
+		&_close:hover {
+			cursor: pointer;
+		}
+
+		&_warn {
+			color: $alert-800;
+		}
+	}
+}
+
+.background_primary {
+	background-color: $surfaces-light-100;
+}
+
+.background_warn {
+	background-color: $background-warn;
+}
+
+.border_warn {
+	border-left: 3px solid $alert-800;
+}

@@ -1,0 +1,62 @@
+[
+   {
+      "id": 1000,
+      "name": "My first pool",
+      "email": "firstCustomer@email.com",
+      "date": "30/09/2023",
+      "draft": true,
+      "phone": "675435467",
+      "countryCode": "ES",
+      "customerName": "John Stuart",
+      "characteristics": {
+         "hasCover": true,
+         "shelter": true,
+         "shape": "rectangular",
+         "ground": null,
+         "place": "First place",
+         "type": "Outdoor pool",
+         "heated": null,
+         "dimension": null
+      },
+      "geolocation": {
+         "altitude": 50,
+         "climateZone": null,
+         "countryCode": null,
+         "latitude": null,
+         "locality": null,
+         "longitude": null,
+         "wind": "medium",
+         "zipCode": null
+      }
+   },
+   {
+      "id": 1500,
+      "date": "25/10/2023",
+      "name": "Pool 2",
+      "draft": false,
+      "email": "secondCustomer@email.com",
+      "phone": "687986432",
+      "countryCode": "ES",
+      "customerName": "William Faulkner",
+      "characteristics": {
+         "hasCover": true,
+         "shelter": true,
+         "shape": "custom",
+         "ground": null,
+         "place": "First place",
+         "type": "Indoor pool",
+         "heated": null,
+         "dimension": null
+      },
+      "geolocation": {
+         "altitude": 50,
+         "climateZone": null,
+         "countryCode": null,
+         "latitude": null,
+         "locality": null,
+         "longitude": null,
+         "wind": "medium",
+         "zipCode": null
+      }
+   }
+]

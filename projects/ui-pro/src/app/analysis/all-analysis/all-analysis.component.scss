@@ -1,0 +1,26 @@
+@import "theme/configurator-palette";
+@import "theme/configurator-breakpoints";
+
+.section {
+   min-height: 503px;
+   background-color: $surfaces-light-50;
+}
+
+.container {
+   padding: 45px 15px;
+
+   @include max-width("sm") {
+      padding: 0;
+   }
+}
+
+.analysis_table {
+   width: 99%;
+   white-space: nowrap;
+   overflow: auto;
+}
+
+.load_more_button_container {
+   margin: auto;
+   width: 80px;
+}

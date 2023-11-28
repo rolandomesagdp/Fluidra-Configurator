@@ -1,0 +1,41 @@
+@import "../../../../../../theme/configurator-palette.scss";
+@import "../../../../../../theme/configurator-breakpoints";
+
+.last_analysis {
+	background-color: $surfaces-light-100;
+	height: 100%;
+	padding: 24px;
+	.mat-mdc-card-header {
+		padding: 16px 0;
+	}
+	&_header {
+		justify-content: space-between;
+	}
+
+	@include max-width("sm") {
+		--mdc-elevated-card-container-elevation: none;
+		.last_analysis_content {
+			padding: 0;
+		}
+	}
+}
+
+.analysis {
+	&_list {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+}
+.mat-headline-3 {
+	margin: 0;
+}
+
+:host {
+	display: block;
+	flex: 1;
+}
+
+.mat-mdc-button {
+	text-decoration: underline;
+}

@@ -1,0 +1,32 @@
+<div class="navigation_container">
+	<div class="center_buttons" [ngClass]="{ one_button: step === 1 }">
+		<button
+			*ngIf="step > 1"
+			mat-stroked-button
+			id="back_button_test"
+			type="button"
+			color="primary"
+			class="back"
+			(click)="back()"
+			[disabled]="saving">
+			{{ "navigationButtons.back" | translate }}
+		</button>
+		<button
+			mat-flat-button
+			id="next_button_test"
+			type="submit"
+			color="primary"
+			[disabled]="saving">
+			<ng-container *ngIf="!saving; else spinnerTemplate">
+				{{ "navigationButtons.next" | translate }}
+			</ng-container>
+			<ng-template #spinnerTemplate>
+				<fcc-spinner
+					id="submit_button_spinner"
+					class="submit_button_spinner"
+					[diameter]="30"
+					color="white"></fcc-spinner>
+			</ng-template>
+		</button>
+	</div>
+</div>

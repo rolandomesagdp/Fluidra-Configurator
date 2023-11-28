@@ -1,0 +1,23 @@
+$breakpoints: (
+  "xxs": 390px,
+  "xs": 540px,
+  "sm": 720px,
+  "md": 1366px,
+  "lg": 1536px,
+  "xl": 1920px,
+  "xxl": 2600px,
+);
+
+// Applies the1 passed rules as @content once reach the passed breakpoint pixel value
+@mixin min-width($breakpoint) {
+  @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Applies the passed rules as @content up to the passed breakpoint pixel value
+@mixin max-width($breakpoint) {
+  @media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}

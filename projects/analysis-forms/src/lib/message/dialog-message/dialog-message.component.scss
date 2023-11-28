@@ -1,0 +1,55 @@
+@import "../../../../../../theme/configurator-palette";
+
+.analysis {
+	&-header {
+		&.mdc-dialog__title {
+			padding: 8px 16px;
+			&:before {
+				display: none;
+			}
+		}
+		&-title {
+			/* L/03 Semibold */
+			@extend .mat-headline-4 !optional;
+			color: $contrast-50;
+			margin-bottom: 0;
+		}
+		&-actions {
+			margin-bottom: 16px;
+			display: flex;
+			justify-content: space-between;
+
+			&-close {
+				padding: 0;
+				--mdc-icon-button-state-layer-size: 24px;
+			}
+
+			&-caption {
+				//styleName: S/01 Text;
+				@extend .mat-caption !optional;
+
+				color: $modal-caption-color;
+			}
+		}
+	}
+
+	&-content {
+		color: $contrast-50;
+		padding: 8px 16px;
+	}
+	&-actions {
+		margin-top: 32px;
+		justify-content: end;
+		.mdc-button {
+			// width: 40%;
+			width: 208px;
+			height: 48px;
+
+			&.mat-mdc-outlined-button {
+				--mdc-outlined-button-outline-color: var(
+					--mdc-outlined-button-label-text-color
+				);
+			}
+		}
+	}
+}

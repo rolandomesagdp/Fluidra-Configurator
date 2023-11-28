@@ -1,0 +1,16 @@
+.sort_button.mat-mdc-icon-button.mat-mdc-button-base {
+   width: 25px;
+   height: 25px;
+   padding: 0px;
+}
+
+.sort_icon {
+   width: 14px;
+   height: 14px;
+   font-size: 15px;
+}
+
+.sort_icon_left {
+   @extend .sort_icon;
+   margin-left: -6px;
+}  

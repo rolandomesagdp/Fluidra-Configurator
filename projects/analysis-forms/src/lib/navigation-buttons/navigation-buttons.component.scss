@@ -1,0 +1,52 @@
+@import "../../../../../theme/configurator-palette";
+@import "../../../../../theme/configurator-breakpoints";
+
+.navigation_container {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	align-self: stretch;
+	padding: 24px 0px;
+	background-color: $fill-light-50;
+	width: 100%;
+	box-shadow: 0px 4px 12px 0px $configurator-shadow;
+
+	& .center_buttons {
+		display: flex;
+		width: 850px;
+		justify-content: space-between;
+	}
+
+	& .one_button {
+		justify-content: flex-end;
+	}
+}
+
+button {
+	display: flex;
+	width: 208px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	border-radius: 4px;
+
+	&.back {
+		border: 1px solid $primary-700;
+		background-color: $fill-chip-50;
+	}
+}
+
+@include max-width("sm") {
+	.navigation_container {
+		align-items: center;
+		gap: 8px;
+		padding: 24px;
+		width: calc(100% - 48px);
+	}
+
+	button {
+		width: 100%;
+	}
+}

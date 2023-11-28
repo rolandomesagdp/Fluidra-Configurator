@@ -1,0 +1,141 @@
+@import "../../../../../../theme/configurator-breakpoints";
+@import "../../../../../../theme/configurator-palette";
+
+:host {
+	display: block;
+	flex: 1;
+}
+
+.new_analysis {
+	padding: 24px;
+	height: 100%;
+
+	.mat-mdc-card-header {
+		padding: 16px 0;
+	}
+	@include max-width("sm") {
+		--mdc-elevated-card-container-elevation: none;
+		padding: 0;
+		.new_analysis_header {
+			padding: 0 16px;
+		}
+	}
+}
+.mat-headline-3 {
+	margin: 0;
+}
+
+.form-fields {
+	margin: 16px auto;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 0 24px;
+
+	@include max-width("sm") {
+		gap: 0;
+	}
+
+	.form-field {
+		flex-basis: 100%;
+		flex: calc(50% - 12px);
+
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		&-full {
+			width: 100%;
+			flex: 100%;
+		}
+		.composed-field {
+			display: flex;
+			flex-direction: row;
+			gap: 8px;
+			vertical-align: middle;
+			.phone {
+				&_prefix {
+					width: 115px;
+					// flex: 1;
+				}
+				&_number {
+					flex: auto;
+				}
+			}
+		}
+	}
+}
+
+.submit-button {
+	width: 208px;
+	height: 48px;
+	padding: 13px, 16px, 13px, 16px;
+	border-radius: 4px;
+	gap: 8px;
+
+	@include max-width("sm") {
+		width: 100%;
+	}
+	&:disabled {
+		background-color: $primary-700;
+	}
+}
+
+::ng-deep {
+	.form-field {
+		.mat-mdc-text-field-wrapper.mdc-text-field--outlined
+			.mat-mdc-form-field-infix {
+			min-height: 40px;
+			height: 40px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		.mat-mdc-form-field-icon-prefix > .mat-icon,
+		.mat-mdc-form-field-icon-suffix > .mat-icon {
+			padding: 8px;
+		}
+		.professional_select {
+			.mat-mdc-select-value {
+				text-align: left;
+			}
+		}
+		.phone_prefix .mat-mdc-select .mat-mdc-select-trigger {
+			align-items: flex-end;
+
+			mat-select-trigger {
+				display: flex;
+				flex-wrap: nowrap;
+				align-content: center;
+				justify-content: space-around;
+				align-items: center;
+				flex-direction: row;
+				& > * {
+					flex: 1;
+				}
+			}
+		}
+	}
+
+	#phone-prefix-input-panel {
+		.mat-mdc-option {
+			.mat-icon {
+				margin-right: 12px;
+			}
+			.mat-pseudo-checkbox {
+				margin-left: 6px;
+			}
+		}
+	}
+}
+
+.country_option {
+	display: flex;
+	gap: 4px;
+
+	.flag_icon {
+		width: 20px;
+	}
+}

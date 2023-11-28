@@ -1,0 +1,19 @@
+<mat-form-field class="language_form_field" appearance="outline">
+	<mat-icon class="selector_icon language_icon" matPrefix>language</mat-icon>
+
+	<mat-select
+		id="language-selector-options"
+		class="language_select"
+		[formControl]="language.languageControl"
+		[title]="language.currentLanguage.name"
+	>
+		<mat-option
+			*ngFor="let lang of language.availableLanguages"
+			id="language-option-{{ lang.value }}"
+			[value]="lang.value"
+			[title]="lang.name"
+			>{{ lang.description }}</mat-option
+		>
+	</mat-select>
+	<mat-icon class="selector_icon expand_icon" matSuffix>expand_more</mat-icon>
+</mat-form-field>

@@ -1,0 +1,9 @@
+<div class="action_button" (click)="onButtonClick()" matRipple title="{{title}}">
+   <p class="action_button_title" [ngClass]="getDisabledClass()" *ngIf="text">{{text}}</p> 
+   <mat-icon *ngIf="icon"
+      class="action_button_icon" 
+      [ngClass]="getDisabledClass()"
+      iconPositionEnd 
+      aria-hidden="true" 
+      fontIcon="{{icon}}"></mat-icon>
+</div>

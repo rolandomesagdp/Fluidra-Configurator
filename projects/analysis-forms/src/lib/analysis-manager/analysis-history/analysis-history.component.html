@@ -1,0 +1,38 @@
+<mat-card class="last_analysis">
+	<mat-card-header class="last_analysis_header">
+		<mat-card-title class="mat-headline-3">{{
+			"dashboard.last_analysis.title" | translate
+		}}</mat-card-title>
+		<button mat-button *ngIf="(lastAnalyses$ | async)?.length" 
+         (click)="onSeeAllAnalysisClicked()" color="primary">
+			{{ "dashboard.last_analysis.seeAll" | translate }}
+		</button>
+	</mat-card-header>
+	<mat-card-content class="last_analysis_content">
+		<ng-container
+			*ngIf="
+				lastAnalyses$ | async as lastAnalyses;
+				else loadingLastAnalysesTemplate
+			">
+			<ng-template #noResultTemplate>
+				<fcc-message
+					messageTitle="dashboard.last_analysis.no_results"
+					description="dashboard.last_analysis.no_results_2"
+					icon="error_outline"
+					class="message"
+					[hasClose]="false"></fcc-message
+			></ng-template>
+			<ng-container *ngIf="lastAnalyses.length; else noResultTemplate">
+				<div class="analysis_list">
+					<fcc-analysis-summary
+						[analysis]="analysis"
+						*ngFor="let analysis of lastAnalyses">
+					</fcc-analysis-summary>
+				</div>
+			</ng-container>
+		</ng-container>
+		<ng-template #loadingLastAnalysesTemplate>
+			<fcc-spinner></fcc-spinner>
+		</ng-template>
+	</mat-card-content>
+</mat-card>

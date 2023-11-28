@@ -1,0 +1,138 @@
+@import "../../../../../../theme/configurator-palette";
+
+.poolUsage_container {
+	display: flex;
+	flex-direction: column;
+
+	#period {
+		--columns: 4;
+		--options-align: center;
+		--options-padding: 8px;
+
+		--option-background-color: #{$background-white};
+		--option-border-color: #{$primary-700};
+		--option-text-color: #{$primary-700};
+
+		--option-selected-background-color: #{$primary-700};
+		--option-selected-border-color: #{$primary-700};
+		--option-selected-text-color: #{$background-white};
+	}
+	fcc-message {
+		margin-bottom: 16px;
+		display: block;
+	}
+
+	.form-fields {
+		margin: 16px 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		.form-field {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			&-wrapper {
+				display: flex;
+				gap: 8px;
+				align-items: center;
+				justify-content: center;
+				vertical-align: middle;
+			}
+		}
+		&-horizontal {
+			align-items: stretch;
+			gap: 16px;
+
+			.form-field,
+			.calculation-result {
+				flex: 1;
+			}
+			.calculation-result {
+				display: flex;
+				background-color: $alert-100;
+				flex-direction: column;
+				flex-wrap: wrap;
+				align-content: flex-start;
+				justify-content: center;
+				padding: 16px;
+				.label {
+					//styleName: M/01 Text;
+					font-family: Work Sans;
+					font-size: 15px;
+					font-weight: 400;
+					line-height: 22px;
+					letter-spacing: 0em;
+					text-align: left;
+				}
+				.hint {
+					font-family: Open Sans;
+					font-size: 10px;
+					font-weight: 600;
+					line-height: 16px;
+					letter-spacing: 0em;
+					text-align: left;
+					color: $surfaces-light-700;
+				}
+			}
+		}
+
+		&-vertical {
+			flex-direction: column;
+			gap: 8px;
+
+			& > .form-field {
+				flex: 1;
+				width: 100%;
+				max-width: 300px;
+				gap: 0px;
+
+				fcc-yes-no-question {
+					display: block;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.section-container {
+	.section {
+		&::marker {
+			// as same as title style
+			@extend .mat-headline-2 !optional;
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 36px;
+			font-family: Work Sans;
+			letter-spacing: normal;
+		}
+		&_content {
+			margin-left: -40px;
+		}
+	}
+}
+
+::ng-deep {
+	.mat-mdc-form-field {
+		.mat-mdc-text-field-wrapper.mdc-text-field--outlined
+			.mat-mdc-form-field-infix {
+			min-height: 40px;
+			height: 40px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+		.mat-mdc-form-field-icon-prefix,
+		.mat-mdc-form-field-icon-suffix {
+			& > .mat-icon {
+				padding: 7px;
+			}
+		}
+		.mat-mdc-form-field-hint-wrapper,
+		.mat-mdc-form-field-error-wrapper {
+			padding: 0;
+		}
+	}
+}

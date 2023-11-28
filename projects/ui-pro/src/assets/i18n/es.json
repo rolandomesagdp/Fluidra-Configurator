@@ -1,0 +1,134 @@
+{
+	"dashboard": {
+		"title": "Configuradores",
+		"analysis": {
+			"brands": "Marcas",
+			"category": "Categoría",
+			"createdBy": "Creado por",
+			"date": "Fecha",
+			"dehumidifierCapacity": "Capacidad del deshumidificador",
+			"draft": "Borrador",
+			"heatingPower": "Potencia del calefactor",
+			"id": "Identificador",
+			"sizingType": "Tipo de medidas",
+			"studyNumber": "Número de estudio",
+			"customerName": {
+				"label": "Nombre y apellidos",
+				"placeholder": "Ej. José García"
+			},
+			"email": {
+				"label": "Correo Electrónico",
+				"pattern": "Correo no valido",
+				"placeholder": "Ej. ejemplo@correo.com"
+			},
+			"name": {
+				"label": "Nombre del proyecto de piscina",
+				"placeholder": "Ej. Piscina interior de José",
+				"required": "Introduzca un nombre de proyecto"
+			},
+			"phone": {
+				"label": "Número de teléfono",
+				"pattern": "Introduzca un número válido",
+				"placeholder": "Ej. 684759545"
+			},
+			"professional": {
+				"label": "Profesional",
+				"placeholder": "Selecciona una opción"
+			}
+		},
+		"delete": {
+			"cancel": "No",
+			"caption": "Análisis de dimensiones",
+			"confirm": "Si",
+			"description": "¿Estás seguro que quieres eliminar este análisis?",
+			"title": "Eliminar análisis"
+		},
+		"duplicate": {
+			"cancel": "No",
+			"caption": "Análisis de dimensiones",
+			"confirm": "Si",
+			"description": "¿Estás seguro que quieres duplicar este análisis?",
+			"title": "Duplicar análisis"
+		},
+		"last_analysis": {
+			"no_results": "Aún no tienes ningún analysis listo.",
+			"no_results_2": "Empieza el proceso de configuración para manejar tus análisis",
+			"seeAll": "Ver todo",
+			"title": "Últimos análisis",
+			"actions": {
+				"delete": "Eliminar",
+				"edit": "Editar",
+				"fullView": "Vista completa",
+				"quickView": "Vista rápida",
+				"duplicate": "Duplicar"
+			}
+		},
+		"new_analysis": {
+			"description": "Empieza la configuración añadiendo los datos de tu cliente, así podrás manejar los datos mas fácilmente en el futuro.",
+			"submit": "Empezar proceso",
+			"title": "Nuevo análisis"
+		},
+		"quickView": {
+			"confirm": "Aceptar",
+			"title": "Vista rápida del análisis"
+		}
+	},
+	"footer": {
+		"aboutUs": "Quienes somos",
+		"access": "Accesos",
+		"brand": "Fluidra Pro",
+		"cart": "Carrito de compra",
+		"configurators": "Configuradores",
+		"contact": "Contáctanos",
+		"cookies": "Consentimiento de Cookies",
+		"cookiesPolicy": "Política de cookies",
+		"copyright": "© Fluidra 2023. Todos los derechos reservados",
+		"delegations": "Delegaciones",
+		"description": "Lorem ipsum dolor sit amet consectetur. Ut mus viverra aliquet dui mauris dui lobortis rhoncus. Odio viverra parturient faucibus vitaealiquet pellentesque aenean risus.",
+		"downloadCatalog": "Descargar catálogo",
+		"faq": "Preguntas Frecuentes",
+		"favs": "Mis Favoritos",
+		"formations": "Formaciones",
+		"legal": "Legal",
+		"myAccount": "Mi Cuenta",
+		"privacyPolicy": "Política de privacidad",
+		"salesPolicy": "Condiciones de venta",
+		"usePolicy": "Condiciones de uso"
+	},
+	"header": {
+		"appName": "Configuradores",
+		"breadcrumb": "¿Dónde estás?",
+		"exitConfigurator": "Salir del configurador",
+		"logout": "Salir",
+		"menu": {
+			"delegations": "Delegaciones",
+			"downloadCatalog": "Descargar catálogo",
+			"formations": "Formaciones",
+			"quartering": "Despieces"
+		}
+	},
+	"navigationButtons": {
+		"back": "Anterior",
+		"next": "Siguiente"
+	},
+	"poolCharacteristics": {
+		"coverQuestion": "¿Es una piscina interior?",
+		"interestedQuestion": "¿En que estás interesado?",
+		"shapeQuestion": "¿Cual es la forma de tu piscina?",
+		"shelterQuestion": "¿Tiene una cubierta?",
+		"step": "Paso",
+		"title": "Características principales",
+		"error": {
+			"shape": "Por favor, selecciona una de las formas",
+			"yesNoQuestion": "Por favor, selecciona \"Si\" o \"No\""
+		},
+		"shapeOptions": {
+			"custom": "Personalizada",
+			"rectangular": "Rectangular",
+			"round": "Circular"
+		}
+	},
+   "allAnalysis": {
+      "title": "Todos los analisis"
+   }
+}

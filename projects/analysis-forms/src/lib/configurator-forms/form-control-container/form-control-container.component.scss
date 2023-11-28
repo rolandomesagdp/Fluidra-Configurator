@@ -1,0 +1,46 @@
+.form-field {
+   flex-basis: 100%;
+   flex: calc(50% - 12px);
+
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+
+   &-full {
+      width: 100%;
+      flex: 100%;
+   }
+
+   .composed-field {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      vertical-align: middle;
+
+      .phone {
+         &_prefix {
+            width: 115px;
+         }
+
+         &_number {
+            flex: auto;
+         }
+      }
+   }
+}
+
+::ng-deep {
+   .form-field {
+      .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+         min-height: 40px;
+         height: 40px;
+         padding-top: 8px;
+         padding-bottom: 8px;
+      }
+
+      .mat-mdc-form-field-icon-prefix>.mat-icon,
+      .mat-mdc-form-field-icon-suffix>.mat-icon {
+         padding: 8px;
+      }
+   }
+}

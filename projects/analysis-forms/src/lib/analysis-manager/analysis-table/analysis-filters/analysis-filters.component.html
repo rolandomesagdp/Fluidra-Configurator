@@ -1,0 +1,61 @@
+<form class="filters_form" (ngSubmit)="applyFilters()" [formGroup]="filtersForm">
+   <div class="analysis_filters">
+      <div class="search_criteria">
+         <fcc-form-control-container>
+            <mat-label for="search-criteria">Search</mat-label>
+            <mat-form-field>
+               <mat-icon matPrefix color="primary" fontIcon="search" />
+               <input matInput id="search_criteria" formControlName="searchCriteria"
+                  placeholder="Enter study number or customer ID" autocomplete="on" />
+            </mat-form-field>
+         </fcc-form-control-container>
+      </div>
+   
+      <div class="filter_input">
+         <fcc-form-control-container>
+            <mat-label for="pool_type_select">Pool type</mat-label>
+            <mat-form-field>
+               <mat-select id="pool_type_select" formControlName="poolTypes" multiple>
+                  <mat-option *ngFor="let poolType of poolTypes" [value]="poolType.key">{{poolType.label |
+                     translate }}</mat-option>
+               </mat-select>
+            </mat-form-field>
+         </fcc-form-control-container>
+      </div>
+   
+      <div class="filter_input">
+         <fcc-form-control-container>
+            <mat-label for="postal_code">Postal code</mat-label>
+            <mat-form-field>
+               <input matInput id="postal_code" 
+                  formControlName="postalCode" 
+                  placeholder="Enter postal code" autocomplete="on" />
+            </mat-form-field>
+         </fcc-form-control-container>
+      </div>
+   
+      <div class="date_input">
+         <fcc-form-control-container>
+            <mat-label for="from_date">From</mat-label>
+            <mat-form-field>
+               <input id="from_date" matInput [matDatepicker]="fromDatepicker" formControlName="from">
+               <mat-datepicker-toggle class="date_input-picker-toggel" matIconPrefix [for]="fromDatepicker" />
+               <mat-datepicker #fromDatepicker />
+            </mat-form-field>
+         </fcc-form-control-container>
+      </div>
+   
+      <div class="date_input">
+         <fcc-form-control-container>
+            <mat-label for="to_date">To</mat-label>
+            <mat-form-field>
+               <input id="to_date" matInput [matDatepicker]="toDatepicker" formControlName="to">
+               <mat-datepicker-toggle class="date_input-picker-toggel" matIconPrefix [for]="toDatepicker" />
+               <mat-datepicker #toDatepicker />
+            </mat-form-field>
+         </fcc-form-control-container>
+      </div>
+   </div>
+
+   <button id="search_button" class="search_button" mat-flat-button color="primary">Search</button>
+</form>

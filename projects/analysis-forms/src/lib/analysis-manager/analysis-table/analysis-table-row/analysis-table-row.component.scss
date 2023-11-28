@@ -1,0 +1,78 @@
+@import '../../../../../../../theme/configurator-palette.scss';
+@import '../../../../../../../theme/configurator-breakpoints.scss';
+
+.row_selected {
+   background-color: $fill-light-50;
+}
+
+.row_not_selected {
+   background-color: $contrast-500;
+}
+
+.table_row {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   min-width: 1262px;
+   width: 99%;
+   height: 86px;
+   margin-bottom: 15px;
+   margin-left: 2px;
+   border-radius: 8px;
+
+   &_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .table_row_cell {
+         border-left: 1px solid #CCCCCC;
+         padding-top: 10px;
+         width: 280px;
+
+         @include max-width("xl") {
+            width: 190px;
+         }
+         
+         @include max-width("lg") {
+            width: 175px;
+         }
+
+         @include max-width("md") {
+            width: 153px;
+         }
+
+         @include max-width("sm") {
+            width: 143px;
+         }
+
+         &_content {
+            margin-left: 10px;
+         }
+      }
+   }
+
+   .draft_chip_container {
+      min-width: 54px;
+   }
+
+   .actions_container {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-left: 30px;
+      width: 361px;
+      gap: 16px;
+
+      @include max-width("xl") {
+         gap: 10px;
+      }
+
+      @include max-width("lg") {
+         margin-left: 5px;
+         gap: 5px;
+      }
+   }
+}

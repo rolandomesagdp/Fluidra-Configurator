@@ -1,0 +1,30 @@
+<div
+	id="message_test"
+	*ngIf="show"
+	class="message_container"
+	[ngClass]="['background_' + background, 'border_' + color]">
+	<mat-icon class="icon" [ngClass]="'icon_' + color">{{ icon }}</mat-icon>
+	<div class="text_container">
+		<h3 class="mat-body-2 no_margin">{{ messageTitle | translate }}</h3>
+		<p class="mat-caption no_margin">
+			{{ description | translate }}
+		</p>
+	</div>
+
+	<button
+		type="button"
+		(click)="onClickAction.emit()"
+		mat-button
+		color="primary"
+		*ngIf="actionLabel">
+		{{ actionLabel | translate }}
+	</button>
+
+	<mat-icon
+		*ngIf="hasClose"
+		color="primary"
+		class="icon icon_close"
+		(click)="hideMessage()"
+		>close</mat-icon
+	>
+</div>

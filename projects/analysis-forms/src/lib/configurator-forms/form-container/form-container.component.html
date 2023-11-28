@@ -1,0 +1,17 @@
+<mat-card class="container">
+	<mat-card-content>
+		<div class="tag_steps">
+			<mat-chip disableRipple *ngIf="type"> {{ type }}</mat-chip>
+			<div>{{ "poolCharacteristics.step" | translate }} {{ stepText }}</div>
+		</div>
+		<h1 class="mat-headline-1 title_text">{{ title }}</h1>
+		<mat-progress-bar
+			mode="determinate"
+			[value]="(step * 100) / totalSteps"
+			color="accent"
+			class="progress_bar"
+		></mat-progress-bar>
+		<div class="separator"></div>
+		<ng-content></ng-content>
+	</mat-card-content>
+</mat-card>

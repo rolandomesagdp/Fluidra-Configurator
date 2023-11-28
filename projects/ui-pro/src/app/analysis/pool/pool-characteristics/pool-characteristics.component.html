@@ -1,0 +1,25 @@
+<ng-container *ngIf="poolCharacteristicsFormManager?.formGroup">
+	<form
+		[formGroup]="poolCharacteristicsFormManager.formGroup"
+		(ngSubmit)="onSubmit()"
+		class="form_container">
+		<fcc-form-container
+			class="form_content"
+			[title]="'poolCharacteristics.title' | translate"
+			[step]="step"
+			[totalSteps]="totalSteps">
+			<fcc-pool-characteristics-form />
+			<fcc-spinner
+				*ngIf="loading"
+				class="loading_spinner"
+				[diameter]="120"
+				color="primary"
+				[fixed]="true" />
+		</fcc-form-container>
+
+		<fcc-navigation-buttons
+			[saving]="saving"
+			[step]="step"
+			[totalSteps]="totalSteps" />
+	</form>
+</ng-container>

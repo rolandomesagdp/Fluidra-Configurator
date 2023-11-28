@@ -1,0 +1,83 @@
+<div mat-dialog-title class="analysis-header">
+	<div class="analysis-header-actions">
+		<button
+			class="analysis-header-actions-close"
+			mat-icon-button
+			mat-dialog-close
+			color="primary"
+		>
+			<mat-icon>close</mat-icon>
+		</button>
+	</div>
+	<h1 class="analysis-header-title mat-headline-4">
+		{{ "dashboard.quickView.title" | translate }}
+	</h1>
+</div>
+
+<div mat-dialog-content class="analysis-content">
+	<div class="analysis-data" *ngIf="analysis">
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.date" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">
+				{{ analysis.date || "-" }}
+			</div>
+		</div>
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.sizingType" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">{{ null || "-" }}</div>
+		</div>
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.id" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">
+				{{ analysis.id || "-" }}
+			</div>
+		</div>
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.studyNumber" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">{{ null || "-" }}</div>
+		</div>
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.createdBy" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">{{ null || "-" }}</div>
+		</div>
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.category" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">{{ null || "-" }}</div>
+		</div>
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.brands" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">{{ null || "-" }}</div>
+		</div>
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.heatingPower" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">{{ null || "-" }}</div>
+		</div>
+		<div class="analysis-data-item">
+			<div class="analysis-data-item-label mat-body-2">
+				{{ "dashboard.analysis.dehumidifierCapacity" | translate }}:
+			</div>
+			<div class="analysis-data-item-value mat-body-2">{{ null || "-" }}</div>
+		</div>
+	</div>
+	<div mat-dialog-actions class="analysis-actions">
+		<button mat-raised-button mat-dialog-close cdkFocusInitial color="primary">
+			{{ "dashboard.quickView.confirm" | translate }}
+		</button>
+	</div>
+</div>

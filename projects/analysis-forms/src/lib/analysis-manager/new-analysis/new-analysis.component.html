@@ -1,0 +1,236 @@
+<mat-card class="new_analysis">
+	<mat-card-header class="new_analysis_header">
+		<mat-card-title class="mat-headline-3">{{
+			"dashboard.new_analysis.title" | translate
+		}}</mat-card-title>
+		<mat-card-subtitle>{{
+			"dashboard.new_analysis.description" | translate
+		}}</mat-card-subtitle>
+	</mat-card-header>
+	<mat-card-content class="new_analysis_content">
+		<form
+			[formGroup]="newAnalysisForm"
+			*ngIf="newAnalysisForm"
+			(ngSubmit)="submit()">
+			<div class="form-fields">
+				<div
+					class="form-field form-field-full"
+					id="professional"
+					*ngIf="newAnalysisForm.controls['professional'] && professionals$">
+					<mat-label id="professional-label">
+						{{ "dashboard.analysis.professional.label" | translate }}
+					</mat-label>
+					<ng-container
+						*ngIf="
+							professionals$ | async as professionals;
+							else loadingProfessionalsTemplate
+						">
+						<mat-form-field
+							*ngIf="professionals.length; else noProfessionalsTemplate">
+							<input
+								id="professional-input"
+								type="text"
+								[placeholder]="
+									'dashboard.analysis.professional.placeholder' | translate
+								"
+								matInput
+								formControlName="professional"
+								debounce="500"
+								[matAutocomplete]="autoComplete" />
+
+							<mat-autocomplete
+								#autoComplete="matAutocomplete"
+								[displayWith]="displayProfessionalFn">
+								<mat-option
+									[value]="professional"
+									*ngFor="let professional of professionals">
+									{{ professional.name }}
+								</mat-option>
+							</mat-autocomplete>
+						</mat-form-field>
+						<ng-template #noProfessionalsTemplate>
+							<!-- TODO: Show any label when no professionals are available? -->
+							No professionals available
+						</ng-template>
+					</ng-container>
+					<ng-template #loadingProfessionalsTemplate>
+						<fcc-spinner></fcc-spinner>
+					</ng-template>
+				</div>
+
+				<div
+					class="form-field"
+					id="name"
+					*ngIf="newAnalysisForm.controls['name'] as nameControl">
+					<mat-label id="name-label">{{
+						"dashboard.analysis.name.label" | translate
+					}}</mat-label>
+					<mat-form-field>
+						<input
+							matInput
+							[placeholder]="'dashboard.analysis.name.placeholder' | translate"
+							formControlName="name"
+							id="name-input"
+							required />
+
+						<mat-icon matSuffix color="warn" *ngIf="hasError(nameControl)"
+							>info_outline</mat-icon
+						>
+
+						<mat-error
+							id="name-error"
+							*ngIf="hasError(nameControl, 'required')">
+							{{ "dashboard.analysis.name.required" | translate }}
+						</mat-error>
+
+						<mat-error
+							id="name-maxlength-error"
+							*ngIf="hasError(nameControl, 'maxlength')">
+							{{ "dashboard.analysis.name.maxlength" | translate }}
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<div
+					class="form-field"
+					id="customerName"
+					*ngIf="
+						newAnalysisForm.controls['customerName'] as customerNameControl
+					">
+					<mat-label id="customerName-label">
+						{{ "dashboard.analysis.customerName.label" | translate }}
+					</mat-label>
+					<mat-form-field>
+						<input
+							matInput
+							[placeholder]="
+								'dashboard.analysis.customerName.placeholder' | translate
+							"
+							formControlName="customerName"
+							id="customerName-input" />
+
+						<mat-icon
+							matSuffix
+							color="warn"
+							*ngIf="hasError(customerNameControl)">
+							>info_outline</mat-icon
+						>
+
+						<mat-error
+							id="customerName-maxlength-error"
+							*ngIf="hasError(customerNameControl, 'maxlength')">
+							{{ "dashboard.analysis.customerName.maxlength" | translate }}
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<div
+					class="form-field"
+					id="email"
+					*ngIf="newAnalysisForm.controls?.['email'] as emailControl">
+					<mat-label id="email-label">{{
+						"dashboard.analysis.email.label" | translate
+					}}</mat-label>
+					<mat-form-field>
+						<input
+							matInput
+							[placeholder]="'dashboard.analysis.email.placeholder' | translate"
+							type="email"
+							formControlName="email"
+							id="email-input" />
+
+						<mat-icon matSuffix color="warn" *ngIf="hasError(emailControl)">
+							info_outline
+						</mat-icon>
+
+						<mat-error id="email-error" *ngIf="hasError(emailControl, 'email')">
+							{{ "dashboard.analysis.email.pattern" | translate }}
+						</mat-error>
+
+						<mat-error
+							id="email-maxlength-error"
+							*ngIf="hasError(emailControl, 'maxlength')">
+							{{ "dashboard.analysis.email.maxlength" | translate }}
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<div
+					class="form-field"
+					id="phone"
+					*ngIf="newAnalysisForm.controls?.['phone'] as phoneControl">
+					<mat-label id="phone-label">
+						{{ "dashboard.analysis.phone.label" | translate }}
+					</mat-label>
+					<div class="composed-field">
+						<mat-form-field class="phone_prefix" id="phone-prefix">
+							<mat-select formControlName="countryCode" id="phone-prefix-input">
+								<mat-select-trigger *ngIf="getCurrentCountry() as country">
+									<div class="country_option">
+										<img
+											class="flag_icon"
+											[src]="'assets/img/flags/' + country.flag"
+											*ngIf="country.flag" />
+										<span>{{ country?.phonePrefix }}</span>
+									</div>
+								</mat-select-trigger>
+								<mat-option
+									*ngFor="let country of countries"
+									[value]="country?.code">
+									<div class="country_option">
+										<img
+											class="flag_icon"
+											[src]="'assets/img/flags/' + country.flag"
+											*ngIf="country.flag" />
+										<span>{{ country?.phonePrefix }}</span>
+									</div>
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+
+						<mat-form-field class="phone_number" id="phone-number">
+							<input
+								matInput
+								[placeholder]="
+									'dashboard.analysis.phone.placeholder' | translate
+								"
+								type="tel"
+								formControlName="phone"
+								id="phone-number-input" />
+
+							<mat-icon matSuffix color="warn" *ngIf="hasError(phoneControl)">
+								info_outline
+							</mat-icon>
+
+							<mat-error
+								id="phone-number-error"
+								*ngIf="hasError(phoneControl, 'phone')">
+								{{ "dashboard.analysis.phone.pattern" | translate }}
+							</mat-error>
+							<mat-error
+								id="phone-maxlength-error"
+								*ngIf="hasError(phoneControl, 'maxlength')">
+								{{ "dashboard.analysis.phone.maxlength" | translate }}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+			<button
+				mat-raised-button
+				color="primary"
+				type="submit"
+				class="submit-button"
+				id="new-analysis_submit-button"
+				[disabled]="saving">
+				<ng-container *ngIf="!saving; else spinnerTemplate">{{
+					"dashboard.new_analysis.submit" | translate
+				}}</ng-container>
+				<ng-template #spinnerTemplate>
+					<fcc-spinner
+						id="submit_button_spinner"
+						class="submit_button_spinner"
+						[diameter]="30"
+						color="white"></fcc-spinner>
+				</ng-template>
+			</button>
+		</form>
+	</mat-card-content>
+</mat-card>

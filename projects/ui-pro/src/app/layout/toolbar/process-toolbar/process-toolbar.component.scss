@@ -1,0 +1,32 @@
+@import "theme/configurator-palette";
+@import "theme/configurator-breakpoints";
+
+.toolbar_row-process {
+   background: $accent-800;;
+   justify-content: space-between;
+
+   .back-button-container {
+      flex: 1;
+      text-align: left;
+   
+      @include max-width("sm") {
+         flex: 0;
+      }
+   
+      .back-button {
+         text-transform: uppercase;
+   
+         &-text {
+            @include max-width("sm") {
+               display: none;
+            }
+         }
+      }
+   }
+
+   .language_selector {
+      @include max-width("xxs") {
+         display: none;
+      }
+   }
+}

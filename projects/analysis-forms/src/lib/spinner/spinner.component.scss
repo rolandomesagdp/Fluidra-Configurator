@@ -1,0 +1,15 @@
+@import "../../../../../theme/configurator-palette.scss";
+
+.fcc_spinner {
+	position: absolute !important;
+	top: 50%;
+	left: calc(50% - (var(--mdc-circular-progress-size) / 2));
+	transform: translateY(-50%);
+	&_fixed {
+		position: fixed !important;
+	}
+}
+
+.mat-white {
+	--mdc-circular-progress-active-indicator-color: #{$contrast-500};
+}

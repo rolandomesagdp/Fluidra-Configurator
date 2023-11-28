@@ -1,0 +1,100 @@
+@import "../../../../../theme/configurator-palette.scss";
+@import "../../../../../theme/configurator-breakpoints";
+
+.checkbox_container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.option {
+		width: calc(calc(100% / var(--columns)) - 8px);
+		margin-bottom: 16px;
+		box-sizing: border-box;
+		border-radius: 4px;
+		border-width: 1px;
+		border-style: solid;
+
+		color: var(--option-text-color);
+
+		background-color: var(--option-background-color);
+		border-color: var(--option-border-color);
+
+		&.mat-mdc-checkbox-error,
+		&.error {
+			border-color: $error-500;
+		}
+		&.mat-mdc-checkbox-checked,
+		&.checked {
+			background-color: var(--option-selected-background-color);
+			border-color: var(--option-selected-border-color);
+		}
+
+		&.disabled {
+			border-color: var(--options-disabled-color);
+			background-color: var(--options-disabled-background-color);
+			color: var(--options-disabled-color);
+		}
+	}
+
+	.select_all {
+		width: 100%;
+		background-color: $surfaces-light-50;
+	}
+}
+
+@include max-width("sm") {
+	.checkbox_container {
+		flex-direction: column;
+
+		.option {
+			width: 100%;
+		}
+	}
+}
+
+::ng-deep {
+	.checkbox_container {
+		.option {
+			.mdc-checkbox {
+				display: none !important;
+			}
+
+			.mdc-form-field label {
+				padding: var(--options-padding) !important;
+				display: flex;
+				justify-content: var(--options-align);
+			}
+		}
+
+		.option.mat-mdc-checkbox {
+			.mdc-form-field {
+				width: 100%;
+				.mdc-label {
+					color: var(--option-text-color);
+					width: 100%;
+				}
+			}
+			&.mat-mdc-checkbox-checked {
+				.mdc-form-field {
+					.mdc-label {
+						color: var(--option-selected-text-color);
+					}
+				}
+			}
+		}
+	}
+}
+
+:host {
+	--columns: 2;
+	--option-background-color: #{$surfaces-light-50};
+	--option-selected-background-color: #{$fill-light-50};
+	--option-border-color: transparent;
+	--option-selected-border-color: #{$primary-700};
+	--option-text-color: #000000;
+	--option-selected-text-color: #000000;
+	--options-align: flex-start;
+	--options-padding: 16px;
+	--options-disabled-color: #{$disabled-placeholder-color};
+	--options-disabled-background-color: #{$disabled-background-color};
+}

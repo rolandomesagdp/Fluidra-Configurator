@@ -1,0 +1,33 @@
+@import "theme/configurator-palette";
+@import "theme/configurator-breakpoints";
+
+.fcp-toolbar {
+   &-primary {
+      background: $accent-800;
+      justify-content: space-between;
+
+      .logo {
+         flex: 1;
+      }
+
+      .navigation_menu {
+         @include max-width("sm") {
+            display: none;
+         }
+      }
+
+      .language_selector {
+         @include max-width("xxs") {
+            display: none;
+         }
+      }
+   }
+
+   &-secondary {
+      background: $accent-400;
+
+      @include max-width("sm") {
+         display: none;
+      }
+   }
+}

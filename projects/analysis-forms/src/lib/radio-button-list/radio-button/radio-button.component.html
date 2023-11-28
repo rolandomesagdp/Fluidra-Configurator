@@ -1,0 +1,12 @@
+<mat-radio-group class="radio_button_container" [(ngModel)]="value">
+	<mat-radio-button
+		class="option radio_button_test"
+		*ngFor="let option of options"
+		[value]="option.key"
+		[ngClass]="{
+			error: hasErrors(),
+			disabled: isDisabled()
+		}">
+		{{ option.label | translate }}
+	</mat-radio-button>
+</mat-radio-group>

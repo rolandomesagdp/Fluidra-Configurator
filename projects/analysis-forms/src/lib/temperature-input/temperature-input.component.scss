@@ -1,0 +1,114 @@
+@import "../../../../../theme/configurator-palette.scss";
+
+.component-content {
+	width: 122px;
+	height: var(--height, 40px);
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	align-items: stretch;
+
+	.main-input,
+	.action-button {
+		border-style: solid;
+		border-width: var(--border-width, 1px);
+		border-color: var(--border-color, #{$primary-700});
+		padding: 0 2px;
+		flex: 1;
+	}
+
+	.action-button {
+		width: var(--button-width, 40px);
+		height: var(--height, 40px);
+
+		background-color: var(--button-background);
+
+		//styleName: L/Price/Semibold;
+		font-family: Work Sans;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 24px;
+		letter-spacing: 0em;
+		text-align: center;
+		color: #666666;
+		cursor: pointer;
+
+		&-less {
+			border-top-left-radius: var(--border-radius, 4px);
+			border-bottom-left-radius: var(--border-radius, 4px);
+			border-right-width: 0;
+		}
+		&-more {
+			border-top-right-radius: var(--border-radius, 4px);
+			border-bottom-right-radius: var(--border-radius, 4px);
+			border-left-width: 0;
+		}
+
+		&:focus-visible {
+			outline: none;
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+			background-color: var(--button-disabled-background);
+			border-color: var(--button-disabled-color);
+			color: var(--button-disabled-color);
+			opacity: 0.5;
+		}
+	}
+
+	.main-input {
+		width: calc(var(--input-width, 40px) - (var(--border-width) * 2) - 4px);
+		text-align: center;
+
+		writing-mode: horizontal-tb !important;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			appearance: none;
+		}
+		&:focus-visible {
+			outline: none;
+		}
+	}
+
+	&.error {
+		.action-button,
+		.main-input {
+			border-color: var(--border-error-color, #{$error-500});
+		}
+	}
+
+	.disabled {
+		cursor: not-allowed;
+		background-color: var(--button-disabled-background);
+		border-color: var(--button-disabled-color);
+		color: var(--button-disabled-color);
+		opacity: 0.5;
+	}
+}
+
+:host {
+	--height: 40px;
+	--width: 40px;
+
+	--border-radius: 4px;
+
+	--button-width: var(--width, 40px);
+	--input-width: var(--width, 40px);
+
+	--base-color: #{$primary-700};
+	--error-color: #{$error-500};
+
+	--border-color: var(--base-color);
+	--border-width: 1px;
+	--border-error-color: var(--error-color);
+
+	--button-background: #{$fill-light-50};
+	--button-disabled-background: #{$disabled-background-color};
+	--button-disabled-color: #{$disabled-placeholder-color};
+}

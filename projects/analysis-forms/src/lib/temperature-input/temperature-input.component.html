@@ -1,0 +1,34 @@
+<div class="component-wrapper">
+	<div class="component-content" [ngClass]="{ error: hasErrors() }">
+		<button
+			class="action-button action-button-less"
+			type="button"
+			name="less"
+			[ngClass]="{ disabled: isDisabled() }"
+			[disabled]="!canSetLessValue()"
+			(click)="setLessValue()">
+			-
+		</button>
+		<input
+			class="main-input"
+			[ngClass]="{ disabled: isDisabled() }"
+			type="number"
+			matInput
+			[(ngModel)]="value"
+			pattern="[0-9]"
+			step="1"
+			[min]="min"
+			[max]="max"
+			(keypress)="preventPressDecimals($event)"
+			(input)="preventSetDecimals($event)" />
+		<button
+			class="action-button action-button-more"
+			[ngClass]="{ disabled: isDisabled() }"
+			type="button"
+			name="more"
+			[disabled]="!canSetMoreValue()"
+			(click)="setMoreValue()">
+			+
+		</button>
+	</div>
+</div>

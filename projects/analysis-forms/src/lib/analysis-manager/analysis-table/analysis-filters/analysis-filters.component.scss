@@ -1,0 +1,47 @@
+.filters_form {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   width: 99%;
+   height: 58px;
+   margin: 40px 0px;
+
+   .analysis_filters {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 30px;
+
+      .search_criteria {
+         width: 326px;
+      }
+
+      .date_input {
+         width: 130px;
+      }
+   }
+}
+
+button.search_button {
+   margin-top: 8px;
+   display: flex;
+   width: 130px;
+   height: 40px;
+   justify-content: center;
+   align-items: center;
+   gap: 8px;
+   border-radius: 4px;
+}
+
+
+::ng-deep .date_input-picker-toggel .mat-mdc-icon-button.mat-mdc-button-base {
+   --mdc-icon-button-state-layer-size: 40px;
+   padding: 9px;
+}
+
+::ng-deep .date_input-picker-toggel .mat-mdc-icon-button .mat-mdc-button-touch-target {
+   height: 40px;
+   width: 40px;
+}

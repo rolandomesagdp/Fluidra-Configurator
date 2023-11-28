@@ -1,0 +1,164 @@
+$primary-50: #e1f6fc;
+$primary-100: #b4e8f6;
+$primary-200: #84d9ef;
+$primary-300: #56cae6;
+$primary-400: #3abfdf;
+$primary-500: #2eb4d7;
+$primary-600: #29a5c3;
+$primary-700: #2290a9;
+$primary-800: #1c7d90;
+$primary-900: #125a65;
+
+$accent-50: #e6e8f4;
+$accent-100: #c0c6e4;
+$accent-200: #97a1d1;
+$accent-300: #6f7dbf;
+$accent-400: #33488d; // modify for header secondary color
+$accent-500: #2e46a6;
+$accent-600: #283f9c;
+$accent-700: #001a70; //modify for set standard color
+$accent-800: #001765; //modify for header primary color
+$accent-900: #001043; //modify for footer color
+
+$alert-50: #fcfce7;
+$alert-100: #fffdf2;
+$alert-200: #f2f09d;
+$alert-300: #edeb76;
+$alert-400: #eae659;
+$alert-500: #e7e23d;
+$alert-600: #e7d137;
+$alert-700: #e5ba2d;
+$alert-800: #e3a322;
+$alert-900: #de7c0d;
+
+$error-50: #f7e6e8;
+$error-100: #ecc2c5;
+$error-200: #ce8886;
+$error-300: #b85d5a;
+$error-400: #ba3c36;
+$error-500: #b6281b;
+$error-600: #a91f1b;
+$error-700: #991617;
+$error-800: #8c1011;
+$error-900: #7d0606;
+
+$surfaces-light-50: #f9fbfd;
+$surfaces-light-100: #f4f6fc;
+$surfaces-light-200: #eff1f3;
+$surfaces-light-300: #e2e4e6;
+$surfaces-light-400: #c0c2c4;
+$surfaces-light-500: #a2a3a5;
+$surfaces-light-600: #787a7c;
+$surfaces-light-700: #646667;
+$surfaces-light-800: #454648;
+$surfaces-light-900: #242526;
+
+$fill-light-50: #eaf7fb;
+$fill-light-100: #c1ecfa;
+$fill-light-200: #94e1fb;
+$fill-light-300: #69d5fc;
+$fill-light-400: #4acbfe;
+$fill-light-500: #33c2ff;
+$fill-light-600: #2cb3f1;
+$fill-light-700: #239fdd;
+$fill-light-800: #1f8eca;
+$fill-light-900: #106da9;
+
+$contrast-50: #000000;
+$contrast-100: #000000;
+$contrast-200: #000000;
+$contrast-300: #000000;
+$contrast-400: #000000;
+$contrast-500: #ffffff;
+$contrast-600: #ffffff;
+$contrast-700: #ffffff;
+$contrast-800: #ffffff;
+$contrast-900: #ffffff;
+
+$contrast: (
+	50: $contrast-50,
+	100: $contrast-100,
+	200: $contrast-200,
+	300: $contrast-300,
+	400: $contrast-400,
+	500: $contrast-500,
+	600: $contrast-600,
+	700: $contrast-700,
+	800: $contrast-800,
+	900: $contrast-900,
+);
+
+// Fill Chip Color
+$fill-chip-50: #f4fbff;
+$fill-chip-100: #eff6ff;
+$fill-chip-200: #eaf2ff;
+$fill-chip-300: #e1e8fb;
+$fill-chip-400: #bfc6d8;
+$fill-chip-500: #a1a8ba;
+$fill-chip-600: #777e8f;
+$fill-chip-700: #63697a;
+$fill-chip-800: #434a5a;
+$fill-chip-900: #212836;
+
+$fill-chip-palette: (
+	50: $fill-chip-50,
+	100: $fill-chip-100,
+	200: $fill-chip-200,
+	300: $fill-chip-300,
+	400: $fill-chip-400,
+	500: $fill-chip-500,
+	600: $fill-chip-600,
+	700: $fill-chip-700,
+	800: $fill-chip-800,
+	900: $fill-chip-900,
+	contrast: $contrast,
+);
+
+$fill-chip-hue: 600;
+$fill-chip-base: map-get($fill-chip-palette, $fill-chip-hue);
+
+// Background Progress bar Color
+$fill-progress-50: #f4f6fc;
+$fill-progress-100: #e3eaf3;
+$fill-progress-200: #d3dbe9;
+$fill-progress-300: #c1cbde;
+$fill-progress-400: #b0bcd2;
+$fill-progress-500: #a0afc8;
+$fill-progress-600: #909eb4;
+$fill-progress-700: #7c879b;
+$fill-progress-800: #6b7383;
+$fill-progress-900: #565d69;
+
+$fill-progress-palette: (
+	50: $fill-progress-50,
+	100: $fill-progress-100,
+	200: $fill-progress-200,
+	300: $fill-progress-300,
+	400: $fill-progress-400,
+	500: $fill-progress-500,
+	600: $fill-progress-600,
+	700: $fill-progress-700,
+	800: $fill-progress-800,
+	900: $fill-progress-900,
+	contrast: $contrast,
+);
+
+$fill-progress-hue: 50;
+$fill-progress-base: map-get($fill-progress-palette, $fill-progress-hue);
+
+// Color for shadows
+$configurator-shadow: #00000029;
+
+//Background color for the warn message
+$background-warn: #fffdf2;
+
+$background-white: #ffffff;
+// Modal caption hint
+// TODO: Move to any palette
+$modal-caption-color: #5d5874;
+
+$data-label-color: #4f5460;
+
+$disabled-placeholder-color: #999999;
+
+$disabled-background-color: #f2f2f2;

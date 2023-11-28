@@ -1,0 +1,33 @@
+@import "theme/configurator-breakpoints";
+
+.user-profile-button {
+   flex-direction: row-reverse;
+   width: 117px;
+   height: 36px;
+
+   @include max-width("sm") {
+      min-width: 37px;
+      width: 37px;
+   }
+   
+   &-title {
+      font-family: Work Sans;
+      margin-top: 13px;
+      margin-right: 10px;
+      font-size: 15px;
+
+      @include max-width("sm") {
+         display: none;
+      }
+   }
+
+   .mat-icon {
+      width: 21px;
+      height: 21px;
+      font-size: 21px;
+      
+      @include max-width("sm") {
+         margin-right: 0px;
+      }
+   }
+}

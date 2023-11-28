@@ -1,0 +1,96 @@
+@import '../../../../../../../theme/configurator-palette.scss';
+@import '../../../../../../../theme/configurator-breakpoints.scss';
+
+.table_font {
+   font-family: Work Sans;
+   font-size: 15px;
+}
+
+.table_header {
+   display: flex;
+   flex-direction: row;
+   width: 99%;
+   height: 38px;
+   justify-content: space-between;
+   margin-bottom: 15px;
+
+   @include max-width("md") {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 38px;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+   }
+
+   .header_row_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      .select_all_check_box {
+         margin-right: 20px;
+      }
+
+      .header_cell {
+         @extend .table_font;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: flex-start;
+         gap: 1px;
+         margin: 0px;
+         color: #999999;
+         width: 280px;
+         padding-top: 4px;
+
+         @include max-width("xl") {
+            width: 190px;
+         }
+         
+         @include max-width("lg") {
+            width: 175px;
+         }
+
+         @include max-width("md") {
+            width: 150px;
+         }
+
+         @include max-width("sm") {
+            width: 140px;
+         }
+
+         &_title {
+            max-width: 85%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+         }
+      }
+   }
+}
+
+::ng-deep .select_all_check_box .mdc-checkbox__background {
+   display: inline-flex;
+   position: absolute;
+   align-items: center;
+   justify-content: center;
+   box-sizing: border-box;
+   width: 19px;
+   height: 19px;
+   border: 2px solid currentColor;
+   border-radius: 2px;
+   background-color: rgba(0, 0, 0, 0);
+   pointer-events: none;
+   will-change: background-color, border-color;
+   transition: background-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1), border-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.select_all_check_box.mat-mdc-icon-button .mat-mdc-button-touch-target {
+   position: absolute;
+   top: 50%;
+   height: 19px;
+   left: 50%;
+   width: 19px;
+   transform: translate(-50%, -50%);
+}

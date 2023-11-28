@@ -1,0 +1,42 @@
+<section class="section section-mobile">
+	<div class="section_content">
+		<div class="brand">
+			<div class="brand_logo">
+				<img src="assets/img/fluidra_logo.svg" />
+			</div>
+		</div>
+
+		<fcp-footer-menu></fcp-footer-menu>
+	</div>
+	<hr />
+	<div class="section_content">
+		<div id="footer-copyright" class="copy mat-caption">{{ "footer.copyright" | translate }}</div>
+	</div>
+</section>
+
+<section class="section section-desktop">
+	<div class="section_content">
+		<div class="brand">
+			<div class="brand_logo">
+				<img src="assets/img/fluidra_pro_logo.svg" />
+			</div>
+			<div class="brand_description">
+				<p class="mat-caption">
+					{{ "footer.description" | translate }}
+				</p>
+			</div>
+		</div>
+
+		<fcp-footer-menu></fcp-footer-menu>
+	</div>
+	<hr />
+	<div class="section_content">
+		<div class="lang">
+			<mat-icon class="lang_icon">language</mat-icon>
+			<span class="lang_label mat-caption">{{
+				language?.currentLanguage?.name
+			}}</span>
+		</div>
+		<div class="copy mat-caption">{{ "footer.copyright" | translate }}</div>
+	</div>
+</section>

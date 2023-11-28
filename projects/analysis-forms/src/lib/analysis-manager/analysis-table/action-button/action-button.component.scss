@@ -1,0 +1,42 @@
+@import '../../../../../../../theme/configurator-palette.scss';
+
+:host {
+   background-color: transparent;
+   :hover {
+      cursor: pointer;
+      border-radius: 2px;
+   }
+
+   .button_disabled {
+      color: $surfaces-light-400;
+   }
+
+   .button_enabled {
+      color: $primary-700;
+   }
+
+   .action_button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: Work Sans;
+      font-size: 15px;
+   
+      .action_button_title {
+         font-family: Work Sans;
+         font-size: 15px;
+         padding-top: 8px;
+         padding-right: 3px;
+         text-decoration: underline;
+      }
+   
+      .action_button_icon {
+         width: 24px;
+         height: 24px;
+         font-size: 21px;
+         margin-left: 2px;
+         color: $primary-700;
+      }
+   }
+}

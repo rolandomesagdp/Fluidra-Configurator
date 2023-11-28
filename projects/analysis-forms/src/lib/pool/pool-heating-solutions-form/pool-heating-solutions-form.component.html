@@ -1,0 +1,95 @@
+<div
+	*ngIf="poolHeatingSolutionsForm"
+	[formGroup]="poolHeatingSolutionsForm"
+	class="poolHeatingSolutions_container">
+	<ol class="section-container">
+		<li class="section">
+			<fcc-title
+				[title]="
+					'poolHeatingSolutions.heatingProductTypeSection.title' | translate
+				"></fcc-title>
+			<mat-error
+				id="heatPump-error-required"
+				class="error_message"
+				*ngIf="
+					needShowError(poolHeatingSolutionsForm.get('heatPump'), 'required')
+				">
+				{{ "poolHeatingSolutions.heatingProductTypeSection.error" | translate }}
+			</mat-error>
+			<div
+				class="section_content"
+				*ngIf="poolHeatingSolutionsForm.get('heatPump')">
+				<div class="section_row">
+					<div>
+						<mat-checkbox
+							id="heatPump_question"
+							color="primary"
+							formControlName="heatPump"></mat-checkbox>
+						{{
+							"poolHeatingSolutions.heatingProductTypeSection.heatPump"
+								| translate
+						}}
+					</div>
+					<button mat-icon-button color="primary" type="button">
+						<mat-icon> info_outline</mat-icon>
+					</button>
+				</div>
+				<div
+					*ngIf="poolHeatingSolutionsForm.get('heatPump').value === true"
+					class="section_row no_background">
+					{{
+						"poolHeatingSolutions.heatingProductTypeSection.technicalRoom"
+							| translate
+					}}
+					<fcc-yes-no-question
+						id="heatPumpInTechnicalRoom_question"
+						formControlName="heatPumpInTechnicalRoom"></fcc-yes-no-question>
+				</div>
+			</div>
+			<div class="separator"></div>
+		</li>
+		<li class="section">
+			<fcc-title
+				[title]="
+					'poolHeatingSolutions.brandSection.title' | translate
+				"></fcc-title>
+			<mat-form-field
+				class="section_content heatingBrand"
+				*ngIf="
+					poolHeatingSolutionsForm.get('heatingBrand') as heatingBrandControl
+				">
+				<mat-select
+					[placeholder]="
+						'poolHeatingSolutions.brandSection.placeholder' | translate
+					"
+					id="heatingBrand-input"
+					formControlName="heatingBrand"
+					required>
+					<mat-option *ngFor="let brand of brands" [value]="brand">
+						{{ brand }}
+					</mat-option>
+				</mat-select>
+				<mat-icon class="form-field_spinner" matPrefix *ngIf="!brands">
+					cached
+				</mat-icon>
+				<mat-icon
+					matSuffix
+					color="warn"
+					*ngIf="needShowError(heatingBrandControl)">
+					info_outline
+				</mat-icon>
+			</mat-form-field>
+			<mat-error
+				class="error_message"
+				id="heatingBrand-error-required"
+				*ngIf="
+					needShowError(
+						poolHeatingSolutionsForm.get('heatingBrand'),
+						'required'
+					)
+				">
+				{{ "poolHeatingSolutions.brandSection.placeholder" | translate }}
+			</mat-error>
+		</li>
+	</ol>
+</div>

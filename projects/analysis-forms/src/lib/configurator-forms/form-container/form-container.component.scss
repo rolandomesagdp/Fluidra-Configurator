@@ -1,0 +1,49 @@
+@import "../../../../../../theme/configurator-palette.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-self: stretch;
+	border-radius: 24px 24px 0px 0px;
+	box-shadow: 0px 4px 12px 0px $configurator-shadow;
+	width: 100%;
+
+	.tag_steps {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		align-self: stretch;
+
+		mat-chip {
+			align-items: center;
+			background-color: $fill-chip-600;
+		}
+	}
+
+	.title_text {
+		@extend .mat-headline-1 !optional;
+		margin-bottom: 8px;
+	}
+}
+
+.separator {
+	display: flex;
+	height: 40px;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	align-self: stretch;
+}
+
+::ng-deep .mat-mdc-standard-chip {
+	--mdc-chip-label-text-color: white;
+	--mdc-chip-container-height: none !important;
+}
+
+::ng-deep .mat-mdc-progress-bar.progress_bar {
+	--mdc-linear-progress-active-indicator-height: 8px;
+	--mdc-linear-progress-track-height: 8px;
+	border-radius: 100px;
+	--mdc-linear-progress-track-color: #{$fill-progress-50};
+}

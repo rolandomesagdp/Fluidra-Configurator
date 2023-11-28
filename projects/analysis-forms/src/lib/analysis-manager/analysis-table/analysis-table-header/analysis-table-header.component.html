@@ -1,0 +1,45 @@
+<div class="table_header">
+   <div class="header_row_container">
+      <mat-checkbox class="select_all_check_box" color="primary"
+      [(ngModel)]="analysisList.allSelected"
+      (ngModelChange)="analysisList.toggleSelection()" />
+      <div class="header_cell">
+         <div class="header_cell_title" title="Date">Date</div>
+         <fcc-analysis-table-sort class="sort-button"></fcc-analysis-table-sort>
+      </div>
+   
+      <div class="header_cell">
+         <div class="header_cell_title" title="Sizing type">Sizing type</div>
+         <fcc-analysis-table-sort></fcc-analysis-table-sort>
+      </div>
+   
+      <div class="header_cell">
+         <div class="header_cell_title" title="Study N">Study N</div>
+         <fcc-analysis-table-sort></fcc-analysis-table-sort>
+      </div>
+   
+      <div class="header_cell">
+         <div class="header_cell_title" title="Pool project name">Pool project name</div>
+         <fcc-analysis-table-sort></fcc-analysis-table-sort>
+      </div>
+   
+      <div class="header_cell">
+         <div class="header_cell_title" title="Created by">Created by</div>
+         <fcc-analysis-table-sort></fcc-analysis-table-sort>
+      </div>
+   
+      <div class="header_cell">
+         <div class="header_cell_title" title="Products">Products</div>
+         <fcc-analysis-table-sort></fcc-analysis-table-sort>
+      </div>
+   
+      <div class="header_cell">
+         <div class="header_cell_title" title="Brands">Brands</div>
+         <fcc-analysis-table-sort></fcc-analysis-table-sort>
+      </div>
+   </div>
+   <fcc-action-button 
+      text="Full analysis table" 
+      title="Download full analysis table" 
+      icon="save_alt" />
+</div>

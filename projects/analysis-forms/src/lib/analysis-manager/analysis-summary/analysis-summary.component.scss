@@ -1,0 +1,126 @@
+@import "../../../../../../theme/configurator-palette";
+@import "../../../../../../theme/configurator-breakpoints";
+
+.analysis {
+	&_card {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 8px;
+		padding: 16px;
+		@include max-width("sm") {
+			justify-content: end;
+			gap: 16px;
+			flex-wrap: wrap-reverse;
+		}
+	}
+	&_field {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		&_label {
+			//styleName: M/01 Text;
+			font-family: Work Sans;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 22px;
+			letter-spacing: 0em;
+			text-align: left;
+
+			color: $surfaces-light-600;
+		}
+		&_value {
+			//styleName: M/01 Text;
+			font-family: Work Sans;
+			font-size: 15px;
+			font-weight: 400;
+			line-height: 22px;
+			letter-spacing: 0em;
+			text-align: left;
+
+			color: $surfaces-light-900;
+		}
+	}
+	&_data {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: nowrap;
+
+		gap: 16px;
+		.mat-divider {
+			min-height: 54px;
+		}
+
+		@include max-width("sm") {
+			flex-wrap: wrap;
+
+			.mat-divider {
+				display: none;
+			}
+		}
+	}
+	&_actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		@include max-width("sm") {
+			align-items: end;
+		}
+	}
+}
+
+.mat-mdc-button {
+	text-decoration: underline;
+	&.reverse-icon,
+	&.action_button {
+		flex-direction: row-reverse;
+		gap: 8px;
+
+		font-family: Work Sans;
+		font-size: 15px;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: 0em;
+		text-align: left;
+
+		& > mat-icon {
+			// Remove the right padding transformed to button gap
+			margin-right: 0;
+		}
+	}
+}
+
+::ng-deep {
+	.analysis_draft
+		.mat-mdc-chip.mat-mdc-standard-chip
+		.mdc-evolution-chip__action--primary {
+		// override default padding
+		padding-left: 0;
+		padding-right: 0;
+		padding: 2px 8px;
+	}
+
+	.mat-mdc-form-field-infix {
+		min-height: 40px;
+	}
+
+	.mat-mdc-form-field-icon-prefix > .mat-icon,
+	.mat-mdc-form-field-icon-suffix > .mat-icon {
+		padding: 8px;
+	}
+
+	.action_button {
+		@include max-width("sm") {
+			min-height: 24px;
+			min-width: 24px;
+			.mdc-button__label {
+				display: none;
+			}
+		}
+	}
+}

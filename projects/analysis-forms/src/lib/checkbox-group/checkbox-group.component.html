@@ -1,0 +1,24 @@
+<section class="checkbox_container">
+	<mat-checkbox
+		class="option checkbox_test"
+		*ngFor="let option of options"
+		[value]="option.key"
+		[ngClass]="{
+			error: hasErrors(),
+			checked: isChecked(option.key),
+			disabled: isDisabled()
+		}"
+		(change)="updateValue(option.key)"
+		(click)="onTouched($event)"
+		[checked]="isChecked(option.key)"
+		>{{ option.label | translate }}</mat-checkbox
+	>
+	<div *ngIf="selectAll" class="select_all">
+		<mat-checkbox
+			[(ngModel)]="selectAllValue"
+			(change)="selectDeselectAll()"
+			color="primary">
+			{{ selectAllLabel | translate }}
+		</mat-checkbox>
+	</div>
+</section>

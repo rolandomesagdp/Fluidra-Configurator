@@ -1,0 +1,68 @@
+@import "../../../../../../theme/configurator-palette";
+@import "../../../../../../theme/configurator-breakpoints";
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	align-self: stretch;
+
+	.button {
+		display: flex;
+		min-width: 152px;
+		max-width: 220px;
+		padding: 16px;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 16px;
+		flex: 1 0 0;
+		border-radius: 4px;
+		background-color: $surfaces-light-50;
+		border: none;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&.selected {
+			border: 1px solid $primary-700;
+			background-color: $fill-light-50;
+		}
+
+		&.disabled {
+			border: 1px solid $disabled-placeholder-color;
+			background-color: $disabled-background-color;
+			color: $disabled-placeholder-color;
+		}
+
+		&.error {
+			border: 1px solid $error-500;
+		}
+	}
+
+	.image {
+		width: 128px;
+		height: 96px;
+	}
+}
+
+@include max-width("sm") {
+	.container {
+		flex-direction: column;
+		width: 100%;
+
+		.button {
+			max-width: 100%;
+			width: 100%;
+			padding: 8px 16px;
+			flex-direction: row;
+			justify-content: flex-start;
+		}
+
+		.image {
+			width: 64px;
+			height: 48px;
+		}
+	}
+}

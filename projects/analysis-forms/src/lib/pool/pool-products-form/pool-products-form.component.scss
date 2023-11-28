@@ -1,0 +1,47 @@
+@import "../../../../../../theme/configurator-palette";
+
+.poolProducts_container {
+	display: flex;
+	flex-direction: column;
+
+	.heating_checkbox {
+		display: flex;
+		height: 40px;
+		// width: calc(50% - 16px);
+		padding: 8px 16px;
+		align-items: center;
+		gap: 8px;
+		flex: 1 0 0;
+		border-radius: 4px;
+		background-color: $surfaces-light-50;
+	}
+	.separator {
+		display: flex;
+		height: 56px;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		align-self: stretch;
+	}
+
+	.error_message {
+		margin-bottom: 16px;
+	}
+}
+
+.section-container {
+	.section {
+		&::marker {
+			// as same as title style
+			@extend .mat-headline-2 !optional;
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 36px;
+			font-family: Work Sans;
+			letter-spacing: normal;
+		}
+		&_content {
+			margin-left: -40px;
+		}
+	}
+}

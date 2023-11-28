@@ -1,0 +1,19 @@
+<section class="section container">
+	<fcc-title title="{{ 'allAnalysis.title' | translate }}" />
+   
+   <div class="analysis_table">
+      <fcc-analysis-filters />
+      
+      <fcc-analysis-table-header />
+
+      <fcc-analysis-table-row *ngFor="let analysis of analysisList.analyses$ | async" [analysisItem]="analysis" />
+      
+      <ng-container *ngIf="loading">
+         <fcc-spinner />
+      </ng-container>
+      
+      <div class="load_more_button_container">
+         <fcc-action-button [disabled]="this.loading" text="Load more" title="Load more" (onClick)="loadMore()" />
+      </div>
+   </div>
+</section>

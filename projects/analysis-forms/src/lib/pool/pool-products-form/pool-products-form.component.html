@@ -1,0 +1,24 @@
+<div
+	*ngIf="poolProductsForm"
+	[formGroup]="poolProductsForm"
+	class="poolProducts_container">
+	<ol class="section-container">
+		<li class="section">
+			<fcc-title
+				[title]="'poolProducts.interestedProducts' | translate"></fcc-title>
+			<div class="section_content">
+				<div *ngIf="poolProductsForm.get('heating')" class="heating_checkbox">
+					<mat-checkbox
+						id="heating_question"
+						color="primary"
+						formControlName="heating"></mat-checkbox>
+					{{ "poolProducts.heating.title" | translate }}
+				</div>
+			</div>
+			<div class="separator"></div>
+		</li>
+		<!--  -->
+		<div class="separator"></div>
+		<!--  -->
+	</ol>
+</div>

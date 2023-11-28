@@ -1,0 +1,39 @@
+<div class="table_row" [ngClass]="getRowClasses()" [class.mat-elevation-z2]="true">
+   <div class="table_row_container">
+      <mat-checkbox *ngIf="analysisItem"
+         class="select_row_check_box" 
+         color="primary" 
+         [(ngModel)]="analysisItem.selected"
+         (ngModelChange)="analysisList.onItemSelectionToggle()" />
+      <div class="table_row_cell">
+         <p class="table_row_cell_content">{{analysisItem?.analysis.date}}</p>
+      </div>
+      <div class="table_row_cell">
+         <p class="table_row_cell_content">{{analysisItem?.analysis?.characteristics.type}}</p>
+      </div>
+      <div class="table_row_cell">
+         <p class="table_row_cell_content">{{analysisItem?.analysis?.id}}</p>
+      </div>
+      <div class="table_row_cell">
+         <p class="table_row_cell_content">{{analysisItem?.analysis?.name}}</p>
+      </div>
+      <div class="table_row_cell">
+         <p class="table_row_cell_content">{{analysisItem?.analysis?.customerName}}</p>
+      </div>
+      <div class="table_row_cell">
+         <p class="table_row_cell_content">Heating</p>
+      </div>
+      <div class="table_row_cell">
+         <p class="table_row_cell_content">Zodiac</p>
+      </div>
+   </div>
+   <div class="draft_chip_container">
+      <fcc-draft-chip *ngIf="analysisItem?.analysis?.draft"></fcc-draft-chip>
+   </div>
+   <div class="actions_container">
+      <fcc-action-button [text]="printButtonText('Delete')" title="Delete analysis" icon="delete_outline"></fcc-action-button>
+      <fcc-action-button [text]="printButtonText('Full view')" title="See analysis" icon="north_east"></fcc-action-button>
+      <fcc-action-button [text]="printButtonText('Quick view')" title="See quick analysis view" icon="visibility"></fcc-action-button>
+      <fcc-action-button [text]="printButtonText('Edit')" title="Edit analysis" icon="border_color"></fcc-action-button>
+   </div>
+</div>

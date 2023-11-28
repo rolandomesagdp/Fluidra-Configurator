@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="mat-body-2 question">
+		{{ questionText }}
+
+		<button *ngIf="moreInfo" mat-icon-button color="primary" type="button">
+			<mat-icon> info_outline</mat-icon>
+		</button>
+	</div>
+	<div class="options">
+		<label
+			class="yes_answer_label_test"
+			[ngClass]="{
+				selected: value,
+				error: hasError || hasErrors(),
+				disabled: isDisabled()
+			}">
+			{{ "yesNoAnswer.yes" | translate }}
+			<input
+				class="yes_answer_test"
+				type="radio"
+				[value]="true"
+				[checked]="value === true"
+				(change)="updateValue(true)"
+				[disabled]="isDisabled()" />
+		</label>
+		<label
+			class="no_answer_label_test"
+			[ngClass]="{
+				selected: value === false,
+				error: hasError || hasErrors(),
+				disabled: isDisabled()
+			}">
+			{{ "yesNoAnswer.no" | translate }}
+			<input
+				class="no_answer_test"
+				type="radio"
+				[value]="false"
+				[checked]="value === false"
+				(change)="updateValue(false)"
+				[disabled]="isDisabled()" />
+		</label>
+	</div>
+</div>

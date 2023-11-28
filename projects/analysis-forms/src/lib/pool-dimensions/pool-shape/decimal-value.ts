@@ -1,0 +1,1 @@
+export const decimalsValue: number = Number('1'.padEnd(3, '0'));

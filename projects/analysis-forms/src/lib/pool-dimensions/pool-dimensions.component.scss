@@ -1,0 +1,57 @@
+@import "../../../../../theme/configurator-palette";
+
+.form-fields {
+	margin: 16px auto;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 0 24px;
+
+	.form-field {
+		flex-basis: 100%;
+		flex: calc(33% - 24px);
+
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&.round {
+		.form-field {
+			flex: calc(50% - 12px);
+		}
+	}
+
+	input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		appearance: none;
+	}
+}
+
+::ng-deep {
+	.form-field {
+		.mat-mdc-text-field-wrapper.mdc-text-field--outlined
+			.mat-mdc-form-field-infix {
+			min-height: 40px;
+			height: 40px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		.mat-mdc-form-field-icon-suffix > .mat-icon {
+			padding: 8px;
+		}
+
+		.mdc-text-field--disabled.mdc-text-field--outlined {
+			background-color: $surfaces-light-50;
+			border-radius: 5px;
+			::placeholder {
+				color: $disabled-placeholder-color;
+			}
+		}
+	}
+}

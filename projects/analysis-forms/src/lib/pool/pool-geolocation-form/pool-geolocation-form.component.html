@@ -1,0 +1,152 @@
+<div
+	*ngIf="poolGeolocationForm"
+	[formGroup]="poolGeolocationForm"
+	class="poolGeolocation_container">
+	<ol class="section-container">
+		<li class="section">
+			<fcc-title
+				class="section_title"
+				[title]="'poolGeolocation.specificities.title' | translate" />
+			<div class="section_content">
+				<div class="form-fields">
+					<div
+						class="form-field"
+						id="altitude"
+						*ngIf="poolGeolocationForm.controls['altitude'] as altitudeControl">
+						<mat-label>{{
+							"poolGeolocation.specificities.altitude.label" | translate
+						}}</mat-label>
+						<mat-form-field class="altitude">
+							<input
+								matInput
+								[placeholder]="
+									'poolGeolocation.specificities.altitude.required' | translate
+								"
+								formControlName="altitude"
+								type="number"
+								id="altitude-input"
+								required />
+
+							<mat-icon
+								matSuffix
+								color="warn"
+								*ngIf="needShowError(altitudeControl)">
+								info_outline
+							</mat-icon>
+
+							<mat-error
+								id="altitude-error-required"
+								class="altitude-error error-required"
+								*ngIf="needShowError(altitudeControl, 'required')">
+								{{
+									"poolGeolocation.specificities.altitude.required" | translate
+								}}
+							</mat-error>
+							<mat-error
+								id="altitude-error-min"
+								class="altitude-error error-min"
+								*ngIf="needShowError(altitudeControl, 'min')">
+								{{ "poolGeolocation.specificities.altitude.min" | translate }}
+							</mat-error>
+							<mat-error
+								id="altitude-error-max"
+								class="altitude-error error-max"
+								*ngIf="needShowError(altitudeControl, 'max')">
+								{{ "poolGeolocation.specificities.altitude.max" | translate }}
+							</mat-error>
+						</mat-form-field>
+					</div>
+
+					<div
+						class="form-field"
+						id="wind"
+						*ngIf="poolGeolocationForm.controls['wind'] as windControl">
+						<mat-label>{{
+							"poolGeolocation.specificities.wind.label" | translate
+						}}</mat-label>
+						<mat-form-field class="wind">
+							<mat-select
+								[placeholder]="
+									'poolGeolocation.specificities.wind.required' | translate
+								"
+								formControlName="wind"
+								id="wind-input"
+								required>
+								<mat-option value="low">
+									{{ "poolGeolocation.specificities.wind.low" | translate }}
+								</mat-option>
+								<mat-option value="medium">
+									{{ "poolGeolocation.specificities.wind.medium" | translate }}
+								</mat-option>
+								<mat-option value="hight">
+									{{ "poolGeolocation.specificities.wind.hight" | translate }}
+								</mat-option>
+							</mat-select>
+							<mat-icon
+								matSuffix
+								color="warn"
+								*ngIf="needShowError(windControl)">
+								info_outline
+							</mat-icon>
+
+							<mat-error
+								id="wind-error-required"
+								class="wind-error error-required"
+								*ngIf="needShowError(windControl, 'required')">
+								{{ "poolGeolocation.specificities.wind.required" | translate }}
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="section">
+			<fcc-title
+				class="section_title"
+				[title]="'poolGeolocation.climateZone.title' | translate" />
+			<div class="section_content">
+				<fcc-message
+					background="primary"
+					color="primary"
+					icon="bookmarks"
+					[messageTitle]="'poolGeolocation.climateZone.help.title' | translate"
+					[description]="
+						'poolGeolocation.climateZone.help.description' | translate
+					" />
+				<div class="form-fields form-fields-full">
+					<div
+						class="form-field"
+						id="climateZone"
+						*ngIf="
+							poolGeolocationForm.controls['climateZone'] as climateZoneControl
+						">
+						<div class="climateZone">
+							<fcc-radio-button
+								*ngIf="countryZonesButtons?.length"
+								id="climateZone-input"
+								formControlName="climateZone"
+								[options]="countryZonesButtons" />
+
+							<mat-error
+								id="climateZone-error-required"
+								class="climateZone-error error-required"
+								*ngIf="needShowError(climateZoneControl, 'required')">
+								{{ "poolGeolocation.climateZone.required" | translate }}
+							</mat-error>
+							<button
+								mat-button
+								id="show_map_button"
+								class="link_button"
+								color="primary"
+								type="button"
+								(click)="showClimateZoneMapDialog()"
+								*ngIf="getCountryMap()">
+								{{ "poolGeolocation.climateZone.showMap" | translate }}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ol>
+</div>

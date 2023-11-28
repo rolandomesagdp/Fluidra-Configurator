@@ -1,0 +1,23 @@
+.page {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  // width: 100vw;
+
+  &__header,
+  &__footer {
+    flex: 1;
+  }
+  &__content {
+    flex: auto;
+    position: relative;
+
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    // TODO: Calculate min
+    min-height: 80vh;
+    height: 100%;
+  }
+}

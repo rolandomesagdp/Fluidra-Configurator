@@ -1,0 +1,19 @@
+<div matRipple [matMenuTriggerFor]="fluidraProAppsMenu" class="app_name_container">
+   <mat-icon>apps</mat-icon>
+   <div class="app_name_title">
+      <p class="app_name-label">{{ "header.breadcrumb" | translate }}</p>
+      <div class="app_name">
+         <p class="app_name-title">{{ "header.appName" | translate }}</p>
+         <mat-icon>expand_more</mat-icon>
+      </div>
+   </div>
+</div>
+<mat-menu #fluidraProAppsMenu="matMenu">
+   <button [ngClass]="proApp.id"
+      *ngFor="let proApp of subApps" 
+      mat-menu-item
+      (click)="navigate(proApp)">
+      <mat-icon>{{proApp.icon}}</mat-icon>
+      <span>{{proApp.label}}</span>
+   </button>
+</mat-menu>

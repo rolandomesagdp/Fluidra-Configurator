@@ -1,0 +1,418 @@
+{
+	"header": {
+		"exitConfigurator": "Exit configurator",
+		"logout": "Log out",
+		"appName": "Configurators",
+		"menu": {
+			"quartering": "Quartering",
+			"delegations": "Delegations",
+			"downloadCatalog": "Download Catalog",
+			"formations": "Formations"
+		},
+		"breadcrumb": "Where are you?"
+	},
+	"footer": {
+		"description": "Lorem ipsum dolor sit amet consectetur. Ut mus viverra aliquet dui mauris dui lobortis rhoncus. Odio viverra parturient faucibus vitaealiquet pellentesque aenean risus.",
+		"access": "Access",
+		"myAccount": "My account",
+		"cart": "Shopping cart",
+		"favs": "My Favorites",
+		"brand": "Fluidra Pro",
+		"delegations": "Delegations",
+		"downloadCatalog": "Download Catalog",
+		"aboutUs": "About us",
+		"configurators": "Configurators",
+		"formations": "Formations",
+		"faq": "Frequent questions",
+		"contact": "Contact us",
+		"legal": "Legal",
+		"cookies": "Cookies consent",
+		"salesPolicy": "Terms of sale",
+		"usePolicy": "Terms of use",
+		"cookiesPolicy": "Cookies policy",
+		"privacyPolicy": "Privacy policy",
+		"copyright": "© Fluidra 2023. All rights reserved"
+	},
+	"poolCharacteristics": {
+		"title": "Main characteristics",
+		"step": "STEP",
+		"wherePoolQuestion": "Where is your pool?",
+		"typePoolQuestion": "What type of pool?",
+		"groundQuestion": "Above ground or inground?",
+		"coverQuestion": "Does it have a cover?",
+		"shelterQuestion": "Does it have a shelter?",
+		"shapeQuestion": "What is the shape of the pool?",
+		"poolDimensionsQuestion": "What are the dimensions of the pool?",
+		"poolDimensionsInfo": "The volume of the pool will be calculated automatically once you complete the below values",
+		"equipmentQuestion": "What are the equipment of the pool?",
+		"heatedQuestion": "It is heated",
+		"locationQuestion": "What is the location of the pool?",
+		"shapeOptions": {
+			"rectangular": "Rectangular",
+			"round": "Round",
+			"custom": "Custom"
+		},
+		"placeOptions": {
+			"indoor": "Indoor",
+			"outdoor": "Outdoor"
+		},
+		"typeOptions": {
+			"swimming_pool": "Pool",
+			"spa": "Spa"
+		},
+		"groundOptions": {
+			"aboveGround": "Above ground",
+			"inGround": "Inground"
+		},
+		"countryOptions": {
+			"FR": "France",
+			"ES": "Spain",
+			"PT": "Portugal",
+			"DE": "Germany",
+			"IT": "Italy",
+			"CH": "Switzerland",
+			"AT": "Austria",
+			"BE": "Belgium",
+			"NL": "Netherlands",
+			"LU": "Luxembourg",
+			"AD": "Andorre",
+			"IE": "Ireland",
+			"LI": "Liechtenstein",
+			"MC": "Monaco",
+			"GB": "United Kingdom",
+			"AL": "Albania",
+			"BY": "Byelorussia",
+			"BA": "Bosnia-Herzegovina",
+			"BG": "Bulgaria",
+			"CY": "Cyprus",
+			"HR": "Croatia",
+			"DK": "Denmark",
+			"EE": "Estonia",
+			"FI": "Finland",
+			"GR": "Greece",
+			"HU": "Hungary",
+			"LV": "Lettonia",
+			"LT": "Lituania",
+			"MK": "Macedonia",
+			"MT": "Malta",
+			"MD": "Moldavia",
+			"NO": "Norway",
+			"PL": "Poland",
+			"CZ": "Czech Republic",
+			"RU": "Russia",
+			"RO": "Roumania",
+			"CS": "Serbia and Montenegro",
+			"SL": "Slovenia",
+			"SK": "Slovakia",
+			"SW": "Sweden",
+			"UA": "Ukraine",
+			"KZ": "Kazakhstan",
+			"UZ": "Ouzbekistan",
+			"TM": "Turkmenistan",
+			"GE": "Georgia",
+			"AZ": "Azerbaidjan",
+			"AM": "Armenia",
+			"ZA": "South Africa",
+			"AU": "Australia",
+			"NZ": "New Zealand",
+			"DZ": "Algeria",
+			"RS": "Republic of Serbia",
+			"MA": "Morocco",
+			"TN": "Tunisia",
+			"ME": "Republic of Montenegro",
+			"IC": "Canary Islands",
+			"IQ": "Iraq",
+			"AE": "United Arab Emirates",
+			"LB": "Lebanon",
+			"KW": "Koweit",
+			"QA": "Qatar",
+			"SA": "Saudi Arabia",
+			"IR": "Ireland"
+		},
+		"zipCode": {
+			"label": "ZIP Code",
+			"placeholder": "i.e AB01"
+		},
+		"length": {
+			"label": "Length (m)",
+			"placeholder": "i.e 3"
+		},
+		"width": {
+			"label": "Width (m)",
+			"placeholder": "i.e 4"
+		},
+		"depth": {
+			"label": "Average depth (m)",
+			"placeholder": "i.e 6"
+		},
+		"volume": {
+			"label": "Volume (m³)",
+			"placeholder": "i.e 4",
+			"automatically": "Calculated automatically"
+		},
+		"diameter": {
+			"label": "Diameter (m)",
+			"placeholder": "i.e 3"
+		},
+		"surface": {
+			"label": "Surface (m²)",
+			"placeholder": "i.e 4",
+			"automatically": "Calculated automatically"
+		},
+		"country": {
+			"label": "Country",
+			"placeholder": "Choose an option"
+		},
+		"error": {
+			"yesNoQuestion": "Please, select Yes or No",
+			"shape": "Please select one value for the shape",
+			"wherePoolQuestion": "Please select one value for the pool location",
+			"typePoolQuestion": "Please select one value for the pool type",
+			"mandatory": "Mandatory field"
+		}
+	},
+	"poolProducts": {
+		"title": "Products",
+		"interestedProducts": "What products are you interested in?",
+		"heating": {
+			"title": "Heating"
+		}
+	},
+	"poolGeolocation": {
+		"title": "Pool Location",
+		"specificities": {
+			"title": "What are the location specificities?",
+			"altitude": {
+				"label": "Altitude (m)",
+				"required": "Enter an Altitude",
+				"min": "Altitude must be 0 at least.",
+				"max": "Altitude shouldn't be higher than 1000."
+			},
+			"wind": {
+				"label": "Wind",
+				"required": "Choose an option",
+				"low": "Low",
+				"medium": "Medium",
+				"hight": "Hight"
+			}
+		},
+		"climateZone": {
+			"title": "In which climate area is it?",
+			"zone_label": "Zone {{code}}",
+			"help": {
+				"title": "You should know...",
+				"description": "Depending on the climate area, the average outside air temperature varies. This is a critical information to size your heating solution"
+			},
+			"showMap": "See climate areas on the map",
+			"required": "Choose an option"
+		}
+	},
+	"poolUsage": {
+		"title": "Pool Usage",
+		"period": {
+			"title": "What periods of the year will the pool be used?",
+			"help": {
+				"title": "You should know...",
+				"description": "A typical bathing season in France or Germany is from May to September, but in countries like Spain it cold be longer, using the pool from April to October"
+			},
+			"options": {
+				"January": "January",
+				"February": "February",
+				"March": "March",
+				"April": "April",
+				"May": "May",
+				"June": "June",
+				"July": "July",
+				"August": "August",
+				"September": "September",
+				"October": "October",
+				"November": "November",
+				"December": "December"
+			},
+			"selectAll": "Select all months",
+			"required": "Choose at least one month"
+		},
+		"waterTemperature": {
+			"title": "What is the current and desired water temperature?",
+			"help": "28º is the most recommended target temperature",
+			"current": "Current water temperature",
+			"target": "Target water temperature",
+			"required": "Enter temperature",
+			"min": "Set {{min}} temperature at least",
+			"max": "The maximum temperature is {{max}}"
+		},
+		"filtrationTime": {
+			"title": "How long would be the filtration?",
+			"help1": {
+				"title": "How to calculate the filtration time",
+				"action": "See details"
+			},
+			"help2": {
+				"title": "You should now...",
+				"description": "Using a Variable Speed filtration pump allows to save on average 60% energy vs on/off"
+			},
+			"label": "Filtrate time (h/day)",
+			"hint": "Calculated automatically, but you can edit it as you wish",
+			"required": "Filtrate Time was required",
+			"min": "Set {{min}} filtrate time at least",
+			"max": "The maximum filtrate time is {{max}}",
+			"calculation": {
+				"label": "Anual average tariffs is {{price}}* (Kw/hour)",
+				"hint": "*This value is an indicative average value"
+			}
+		},
+		"powerSupplyType": {
+			"title": "What is the power supply?",
+			"label": "Power supply",
+			"options": {
+				"SinglePhase": "Single phase",
+				"ThreePhases": "Three phase",
+				"BothSingleAnThreePhases": "Both single and three phase"
+			}
+		},
+		"attendance": {
+			"title": "What is the attendance?",
+			"label": "Attendance",
+			"options": {
+				"private": "Private",
+				"collective": "Collective"
+			},
+			"collectiveAttendance": {
+				"spa": "Balneo space",
+				"river": "River",
+				"waves": "Wave pool",
+				"slides": "Water slides",
+				"required": "Is mandatory select an option"
+			}
+		},
+		"filtrationType": {
+			"title": "What are the equipment and specificities of the pool?",
+			"label": "Select the type of filtration",
+			"options": {
+				"skimmer": "Skimmer",
+				"block": "Filtration block",
+				"overflow-gutter": "Overflow by gutter",
+				"overflow-waterfall": "Overflow by waterfall"
+			}
+		}
+	},
+	"poolHeatingSolutions": {
+		"title": "Heating Solutions",
+		"heatingProductTypeSection": {
+			"title": "What type of heating products do you want to configure?",
+			"error": "Please select at least one product",
+			"heatPump": "Heat pump",
+			"technicalRoom": "Is the heat pump in a technical room?"
+		},
+		"brandSection": {
+			"title": "Choose a brand",
+			"placeholder": "Select a brand"
+		},
+		"tariffSection": {
+			"title": "Which tariff do you want to apply?",
+			"placeholder": "Select a tariff"
+		}
+	},
+	"dashboard": {
+		"title": "Configurators",
+		"analysis": {
+			"professional": {
+				"label": "Choose professionals",
+				"placeholder": "Choose an option"
+			},
+			"name": {
+				"label": "Pool project name*",
+				"required": "Enter an analysis name",
+				"placeholder": "i.e Robert’s indoor pool",
+				"maxlength": "The name is too long"
+			},
+			"customerName": {
+				"label": "Name and surname",
+				"placeholder": "i.e Johnson Mackerison",
+				"maxlength": "The name and surnames is too long"
+			},
+			"email": {
+				"label": "Email",
+				"placeholder": "email@email.com",
+				"pattern": "The mail is invalid",
+				"maxlength": "The email is too long"
+			},
+			"phone": {
+				"label": "Phone number",
+				"placeholder": "i.e 666555777",
+				"pattern": "Invalid phone number",
+				"maxlength": "The phone is too long"
+			},
+			"date": "Date",
+			"draft": "Draft",
+			"sizingType": "Sizing type",
+			"id": "Analysis ID*",
+			"studyNumber": "Study Number",
+			"createdBy": "Created By",
+			"category": "Category",
+			"brands": "Brands",
+			"heatingPower": "Heating power ND",
+			"dehumidifierCapacity": "Dehumidifier capacity ND"
+		},
+		"new_analysis": {
+			"title": "New analysis",
+			"description": "Start your configuration by adding the data of your client, in order to be able to manage it in the future in a simple way",
+			"submit": "Start process"
+		},
+		"last_analysis": {
+			"title": "Last analysis",
+			"no_results": "You don’t have any analysis done at the moment",
+			"no_results_2": "Start the configuration process to manage your analysis",
+			"seeAll": "See all",
+			"actions": {
+				"delete": "Delete",
+				"fullView": "Full view",
+				"quickView": "Quick view",
+				"edit": "Edit",
+				"duplicate": "Duplicate"
+			}
+		},
+		"quickView": {
+			"title": "Analysis quick view",
+			"confirm": "Ok"
+		},
+		"delete": {
+			"caption": "Sizing analysis",
+			"title": "Delete sizing",
+			"description": "Are you sure you want to delete this sizing?",
+			"confirm": "Yes",
+			"cancel": "No"
+		},
+		"duplicate": {
+			"caption": "Sizing analysis",
+			"title": "Duplicate sizing",
+			"description": "Are you sure you want to duplicate this sizing?",
+			"confirm": "Yes",
+			"cancel": "No"
+		}
+	},
+	"navigationButtons": {
+		"next": "Next",
+		"back": "Back"
+	},
+	"yesNoAnswer": {
+		"yes": "Yes",
+		"no": "No"
+	},
+	"message": {
+		"shouldKnow": {
+			"coverTitle": "You should know...",
+			"coverDescription": "Having a pool cover/shelter allows to reduce the power consumption of a heating solution up to XX%. By choosing a cover, it also prevents 90% of water loss due to water evaporation."
+		},
+		"remember": {
+			"coverTitle": "Remember...",
+			"coverDescription": "Not having  a cover / shelter increases the power consumption of a heating solution"
+		}
+	},
+	"checkbox": {
+		"defaultSelectAll": "Select all"
+	},
+	"allAnalysis": {
+		"title": "All analysis"
+	}
+}

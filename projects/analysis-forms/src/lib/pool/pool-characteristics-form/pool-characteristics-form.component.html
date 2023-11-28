@@ -1,0 +1,240 @@
+<div
+	*ngIf="poolCharacteristicsForm"
+	[formGroup]="poolCharacteristicsForm"
+	class="poolCharacteristics_container">
+	<ol class="section-container">
+		<li class="section">
+			<fcc-title
+				[title]="
+					'poolCharacteristics.wherePoolQuestion' | translate
+				"></fcc-title>
+			<div class="section_content">
+				<mat-error
+					id="place_error"
+					*ngIf="
+						poolCharacteristicsForm.get('place').touched &&
+						poolCharacteristicsForm.get('place').hasError('required')
+					"
+					class="error_message">
+					{{ "poolCharacteristics.error.wherePoolQuestion" | translate }}
+				</mat-error>
+				<fcc-radio-button
+					id="place_radio_button"
+					*ngIf="poolCharacteristicsForm.get('place')"
+					formControlName="place"
+					formName="place"
+					[options]="placeOptions">
+				</fcc-radio-button>
+			</div>
+			<div class="separator"></div>
+		</li>
+		<li class="section">
+			<fcc-title
+				[title]="
+					'poolCharacteristics.typePoolQuestion' | translate
+				"></fcc-title>
+			<div class="section_content">
+				<mat-error
+					id="type_error"
+					*ngIf="
+						poolCharacteristicsForm.get('type').touched &&
+						poolCharacteristicsForm.get('type').hasError('required')
+					"
+					class="error_message">
+					{{ "poolCharacteristics.error.typePoolQuestion" | translate }}
+				</mat-error>
+				<fcc-checkbox-group
+					id="type_checkbox_group"
+					*ngIf="poolCharacteristicsForm.get('type')"
+					formControlName="type"
+					[options]="typeOptions"></fcc-checkbox-group>
+				<div class="mat-body-2 groundQuestion">
+					{{ "poolCharacteristics.groundQuestion" | translate }}
+					<button mat-icon-button color="primary" type="button">
+						<mat-icon> info_outline</mat-icon>
+					</button>
+					<div class="ground_toggle_container">
+						{{ "poolCharacteristics.groundOptions.aboveGround" | translate }}
+						<mat-slide-toggle
+							id="ground_slide_toggle"
+							*ngIf="poolCharacteristicsForm.get('ground')"
+							formControlName="ground"
+							formName="ground"
+							hideIcon
+							color="primary"></mat-slide-toggle>
+						{{ "poolCharacteristics.groundOptions.inGround" | translate }}
+					</div>
+				</div>
+			</div>
+			<div class="separator"></div>
+		</li>
+		<li class="section">
+			<fcc-title
+				[title]="'poolCharacteristics.shapeQuestion' | translate"></fcc-title>
+			<div class="section_content">
+				<mat-error
+					id="shape_error"
+					*ngIf="
+						poolCharacteristicsForm.get('shape').touched &&
+						poolCharacteristicsForm.get('shape').hasError('required')
+					"
+					class="error_message">
+					{{ "poolCharacteristics.error.shape" | translate }}
+				</mat-error>
+				<fcc-shape-selector
+					*ngIf="poolCharacteristicsForm.get('shape')"
+					formControlName="shape"
+					id="shape_selector">
+				</fcc-shape-selector>
+			</div>
+			<div class="separator"></div>
+		</li>
+		<li class="section" *ngIf="!!poolCharacteristicsForm.get('shape').value">
+			<fcc-title
+				[title]="
+					'poolCharacteristics.poolDimensionsQuestion' | translate
+				"></fcc-title>
+			<div class="section_content">
+				<fcc-pool-dimensions
+					*ngIf="poolCharacteristicsForm.get('dimension')"
+					formGroupName="dimension"
+					[shape]="poolCharacteristicsForm.get('shape').value">
+				</fcc-pool-dimensions>
+			</div>
+			<div class="separator"></div>
+		</li>
+		<li class="section">
+			<fcc-title
+				[title]="
+					'poolCharacteristics.equipmentQuestion' | translate
+				"></fcc-title>
+			<div class="section_content">
+				<fcc-message
+					id="info_equipment_message"
+					messageTitle="message.shouldKnow.coverTitle"
+					description="message.shouldKnow.coverDescription"
+					icon="bookmark_outline"
+					color="primary"
+					background="primary"
+					class="message"
+					[ngClass]="{ message_hidden: !showCoverMessage }"
+					(onClose)="showCoverMessage = false"></fcc-message>
+				<div class="yes_no_question">
+					<fcc-yes-no-question
+						id="coverQuestion"
+						*ngIf="poolCharacteristicsForm.get('hasCover')"
+						formControlName="hasCover"
+						[questionText]="'poolCharacteristics.coverQuestion' | translate"
+						moreInfo="moreInfo"
+						[hasError]="getHasCoverError()"></fcc-yes-no-question>
+				</div>
+				<div class="yes_no_question">
+					<fcc-yes-no-question
+						id="shelterQuestion"
+						*ngIf="poolCharacteristicsForm.get('shelter')"
+						formControlName="shelter"
+						[questionText]="'poolCharacteristics.shelterQuestion' | translate"
+						moreInfo="moreInfo"
+						[hasError]="getShelterError()"></fcc-yes-no-question>
+					<div *ngIf="poolCharacteristicsForm.get('shelter').value === true">
+						<mat-checkbox
+							id="heated_question"
+							color="primary"
+							formControlName="heated"></mat-checkbox>
+						{{ "poolCharacteristics.heatedQuestion" | translate }}
+					</div>
+				</div>
+				<mat-error
+					id="yes_no_error"
+					*ngIf="getHasCoverError() || getShelterError()">
+					{{ "poolCharacteristics.error.yesNoQuestion" | translate }}
+				</mat-error>
+				<fcc-message
+					id="remember_equipment_message"
+					*ngIf="getShowRememberMessage"
+					messageTitle="message.remember.coverTitle"
+					description="message.remember.coverDescription"
+					icon="error"
+					color="warn"
+					background="warn"
+					class="message"
+					[ngClass]="{ message_hidden: !showRememberMessage }"
+					(onClose)="showRememberMessage = false"></fcc-message>
+			</div>
+			<div class="separator"></div>
+		</li>
+		<li class="section">
+			<fcc-title
+				[title]="
+					'poolCharacteristics.locationQuestion' | translate
+				"></fcc-title>
+			<div class="section_content form-fields">
+				<div class="form-field" id="country">
+					<mat-label>{{
+						"poolCharacteristics.country.label" | translate
+					}}</mat-label>
+					<mat-form-field
+						class="countryCode"
+						*ngIf="
+							poolCharacteristicsForm.get('countryCode') as countryCodeControl
+						">
+						<mat-select
+							[placeholder]="
+								'poolCharacteristics.country.placeholder' | translate
+							"
+							id="countryCode-input"
+							formControlName="countryCode"
+							required>
+							<mat-option
+								*ngFor="let country of countryOptions"
+								[value]="country.key">
+								{{ country.label | translate }}
+							</mat-option>
+						</mat-select>
+						<mat-icon
+							matSuffix
+							color="warn"
+							*ngIf="needShowError(countryCodeControl)">
+							info_outline
+						</mat-icon>
+
+						<mat-error
+							id="country-error-required"
+							class="country-error error-required"
+							*ngIf="needShowError(countryCodeControl, 'required')">
+							{{ "poolCharacteristics.country.required" | translate }}
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<div class="form-field" id="zipCode">
+					<mat-label id="zipCode-label">{{
+						"poolCharacteristics.zipCode.label" | translate
+					}}</mat-label>
+					<mat-form-field
+						*ngIf="poolCharacteristicsForm.get('zipCode') as zipCodeControl">
+						<input
+							matInput
+							id="zipCode-input"
+							formControlName="zipCode"
+							[placeholder]="
+								'poolCharacteristics.zipCode.placeholder' | translate
+							" />
+
+						<mat-icon
+							matSuffix
+							color="warn"
+							*ngIf="needShowError(zipCodeControl)"
+							>info_outline</mat-icon
+						>
+
+						<mat-error
+							id="width-error"
+							*ngIf="needShowError(zipCodeControl, 'required')">
+							{{ "poolCharacteristics.error.mandatory" | translate }}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+		</li>
+	</ol>
+</div>

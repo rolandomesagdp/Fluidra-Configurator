@@ -1,0 +1,1 @@
+export type SpinnerColor = "primary" | "accent" | "warn" | "white";

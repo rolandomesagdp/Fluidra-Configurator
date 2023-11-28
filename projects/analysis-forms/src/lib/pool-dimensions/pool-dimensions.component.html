@@ -1,0 +1,183 @@
+<fcc-message
+	icon="error_outline"
+	background="primary"
+	messageTitle="poolCharacteristics.poolDimensionsInfo"
+	[hasClose]="true">
+</fcc-message>
+<div [formGroup]="poolDimensionsControl" class="form-fields" [ngClass]="shape">
+	<div
+		class="form-field"
+		id="length"
+		*ngIf="
+			shape === 'rectangular' &&
+			poolDimensionsControl?.controls['length'] as lengthControl
+		">
+		<mat-label id="length-label">{{
+			"poolCharacteristics.length.label" | translate
+		}}</mat-label>
+		<mat-form-field>
+			<input
+				matInput
+				[placeholder]="'poolCharacteristics.length.placeholder' | translate"
+				type="number"
+				formControlName="length"
+				id="length-input"
+				(keypress)="limitPressDecimals($event)"
+				(input)="limitInputDecimals($event)"
+				(change)="updateSurfaceAndVolume(shape)" />
+
+			<mat-icon matSuffix color="warn" *ngIf="hasError(lengthControl)"
+				>info_outline</mat-icon
+			>
+
+			<mat-error id="length-error" *ngIf="hasError(lengthControl, 'required')">
+				{{ "poolCharacteristics.error.mandatory" | translate }}
+			</mat-error>
+		</mat-form-field>
+	</div>
+	<div
+		class="form-field"
+		id="width"
+		*ngIf="
+			shape === 'rectangular' &&
+			poolDimensionsControl?.controls['width'] as widthControl
+		">
+		<mat-label id="width-label">{{
+			"poolCharacteristics.width.label" | translate
+		}}</mat-label>
+		<mat-form-field>
+			<input
+				matInput
+				[placeholder]="'poolCharacteristics.width.placeholder' | translate"
+				type="number"
+				formControlName="width"
+				id="width-input"
+				(keypress)="limitPressDecimals($event)"
+				(input)="limitInputDecimals($event)"
+				(change)="updateSurfaceAndVolume(shape)" />
+
+			<mat-icon matSuffix color="warn" *ngIf="hasError(widthControl)"
+				>info_outline</mat-icon
+			>
+
+			<mat-error id="width-error" *ngIf="hasError(widthControl, 'required')">
+				{{ "poolCharacteristics.error.mandatory" | translate }}
+			</mat-error>
+		</mat-form-field>
+	</div>
+	<div
+		class="form-field"
+		id="diameter"
+		*ngIf="
+			shape === 'round' &&
+			poolDimensionsControl?.controls['diameter'] as diameterControl
+		">
+		<mat-label id="diameter-label">{{
+			"poolCharacteristics.diameter.label" | translate
+		}}</mat-label>
+		<mat-form-field>
+			<input
+				matInput
+				[placeholder]="'poolCharacteristics.diameter.placeholder' | translate"
+				type="number"
+				formControlName="diameter"
+				id="diameter-input"
+				(keypress)="limitPressDecimals($event)"
+				(input)="limitInputDecimals($event)"
+				(change)="updateSurfaceAndVolume(shape)" />
+
+			<mat-icon matSuffix color="warn" *ngIf="hasError(diameterControl)"
+				>info_outline</mat-icon
+			>
+
+			<mat-error id="width-error" *ngIf="hasError(diameterControl, 'required')">
+				{{ "poolCharacteristics.error.mandatory" | translate }}
+			</mat-error>
+		</mat-form-field>
+	</div>
+	<div
+		class="form-field"
+		id="depth"
+		*ngIf="
+			(shape === 'rectangular' || shape === 'round') &&
+			poolDimensionsControl?.controls['depth'] as depthControl
+		">
+		<mat-label id="depth-label">{{
+			"poolCharacteristics.depth.label" | translate
+		}}</mat-label>
+		<mat-form-field>
+			<input
+				matInput
+				[placeholder]="'poolCharacteristics.depth.placeholder' | translate"
+				type="number"
+				formControlName="depth"
+				id="depth-input"
+				(keypress)="limitPressDecimals($event)"
+				(input)="limitInputDecimals($event)"
+				(change)="updateSurfaceAndVolume(shape)" />
+
+			<mat-icon matSuffix color="warn" *ngIf="hasError(depthControl)"
+				>info_outline</mat-icon
+			>
+
+			<mat-error id="depth-error" *ngIf="hasError(depthControl, 'required')">
+				{{ "poolCharacteristics.error.mandatory" | translate }}
+			</mat-error>
+		</mat-form-field>
+	</div>
+	<div
+		class="form-field"
+		id="surface"
+		*ngIf="poolDimensionsControl?.controls['surface'] as surfaceControl">
+		<mat-label id="surface-label">{{
+			"poolCharacteristics.surface.label" | translate
+		}}</mat-label>
+		<mat-form-field>
+			<input
+				matInput
+				[placeholder]="
+					'poolCharacteristics.surface.' +
+						(shape === 'custom' ? 'placeholder' : 'automatically') | translate
+				"
+				type="number"
+				formControlName="surface"
+				id="surface-input" />
+
+			<mat-icon matSuffix color="warn" *ngIf="hasError(surfaceControl)"
+				>info_outline</mat-icon
+			>
+
+			<mat-error
+				id="surface-error"
+				*ngIf="hasError(surfaceControl, 'required')">
+				{{ "poolCharacteristics.error.mandatory" | translate }}
+			</mat-error>
+		</mat-form-field>
+	</div>
+	<div
+		class="form-field"
+		id="volume"
+		*ngIf="poolDimensionsControl?.controls['volume'] as volumeControl">
+		<mat-label id="volume-label">{{
+			"poolCharacteristics.volume.label" | translate
+		}}</mat-label>
+		<mat-form-field>
+			<input
+				matInput
+				[placeholder]="
+					'poolCharacteristics.volume.' +
+						(shape === 'custom' ? 'placeholder' : 'automatically') | translate
+				"
+				type="number"
+				formControlName="volume"
+				id="volume-input" />
+			<mat-icon matSuffix color="warn" *ngIf="hasError(volumeControl)"
+				>info_outline</mat-icon
+			>
+
+			<mat-error id="volume-error" *ngIf="hasError(volumeControl, 'required')">
+				{{ "poolCharacteristics.error.mandatory" | translate }}
+			</mat-error>
+		</mat-form-field>
+	</div>
+</div>

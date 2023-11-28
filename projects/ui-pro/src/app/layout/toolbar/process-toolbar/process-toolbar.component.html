@@ -1,0 +1,22 @@
+<ng-container *ngIf="toolbarEvents.processToolbarDisplayEvent$ | async">
+   <mat-toolbar id="fcp-process-toolbar" color="primary">
+      <mat-toolbar-row class="toolbar_row-process">
+        <div class="back-button-container">
+          <button class="back-button" mat-button [routerLink]="'/'">
+            <mat-icon>arrow_back</mat-icon>
+            <span class="back-button-text">
+              {{ "header.exitConfigurator" | translate }}
+            </span>
+          </button>
+        </div>
+    
+        <fcp-fluidra-logo id="fluidra_logo"></fcp-fluidra-logo>
+    
+        <div class="settings">
+          <fcp-language-selector class="language_selector"></fcp-language-selector>
+    
+          <fcp-user-profile-button></fcp-user-profile-button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+</ng-container>

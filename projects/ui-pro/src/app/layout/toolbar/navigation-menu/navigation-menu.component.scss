@@ -1,0 +1,24 @@
+@import "theme/configurator-breakpoints";
+
+.menu {
+  display: flex;
+
+  flex: 1 1 auto;
+
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 24px;
+
+  align-content: center;
+
+  &_item {
+    font-family: Work Sans;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--mat-toolbar-container-text-color);
+    text-decoration: none;
+  }
+}

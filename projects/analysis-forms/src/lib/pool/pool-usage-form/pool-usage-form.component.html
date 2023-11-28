@@ -1,0 +1,417 @@
+<div
+	*ngIf="poolUsageForm"
+	[formGroup]="poolUsageForm"
+	class="poolUsage_container">
+	<ol class="section-container">
+		<li
+			class="section"
+			*ngIf="poolUsageForm?.controls?.['periodOfUseMonths'] as periodControl">
+			<fcc-title
+				class="section_title"
+				[title]="'poolUsage.period.title' | translate" />
+			<div class="section_content">
+				<fcc-message
+					background="primary"
+					color="primary"
+					icon="bookmarks"
+					[messageTitle]="'poolUsage.period.help.title' | translate"
+					[description]="'poolUsage.period.help.description' | translate" />
+
+				<fcc-checkbox-group
+					*ngIf="periodOptions?.length"
+					id="period"
+					formControlName="periodOfUseMonths"
+					[options]="periodOptions"
+					[selectAll]="true"
+					[selectAllLabel]="'poolUsage.period.selectAll' | translate" />
+
+				<mat-error
+					id="period-error-required"
+					class="period-error error-required"
+					*ngIf="needShowError(periodControl, 'required')">
+					{{ "poolUsage.period.required" | translate }}
+				</mat-error>
+			</div>
+		</li>
+
+		<li class="section">
+			<fcc-title
+				class="section_title"
+				[title]="'poolUsage.waterTemperature.title' | translate" />
+			<div class="section_content">
+				<fcc-message
+					background="primary"
+					color="primary"
+					icon="bookmarks"
+					[description]="'poolUsage.waterTemperature.help' | translate" />
+				<div class="form-fields">
+					<div
+						class="form-field"
+						*ngIf="poolUsageForm?.controls?.['currentWaterTemperature'] as currentWaterTemperatureControl">
+						<div class="form-field-wrapper">
+							<div class="form-field_label">
+								{{ "poolUsage.waterTemperature.current" | translate }}
+							</div>
+
+							<fcc-temperature-input
+								[min]="0"
+								[max]="28"
+								class="form-field_input"
+								id="current-water-temperature"
+								formControlName="currentWaterTemperature" />
+						</div>
+						<div class="form-field-errors">
+							<mat-error
+								id="currentWaterTemperature-error-min"
+								class="currentWaterTemperature-error error-min"
+								*ngIf="needShowError(currentWaterTemperatureControl, 'min')">
+								{{ "poolUsage.waterTemperature.min" | translate:currentWaterTemperatureControl.errors?.['min']}}
+							</mat-error>
+
+							<mat-error
+								id="currentWaterTemperature-error-max"
+								class="currentWaterTemperature-error error-max"
+								*ngIf="needShowError(currentWaterTemperatureControl, 'max')">
+								{{ "poolUsage.waterTemperature.max" | translate:currentWaterTemperatureControl.errors?.['max'] }}
+							</mat-error>
+
+							<mat-error
+								id="currentWaterTemperature-error-required"
+								class="currentWaterTemperature-error error-required"
+								*ngIf="
+									needShowError(currentWaterTemperatureControl, 'required')
+								">
+								{{ "poolUsage.waterTemperature.required" | translate }}
+							</mat-error>
+						</div>
+					</div>
+					<div
+						class="form-field form-field-horizontal"
+						*ngIf="poolUsageForm?.controls?.['targetWaterTemperature'] as targetWaterTemperatureControl">
+						<div class="form-field-wrapper">
+							<div class="form-field_label">
+								{{ "poolUsage.waterTemperature.target" | translate }}
+							</div>
+
+							<fcc-temperature-input
+								[min]="20"
+								[max]="43"
+								id="target-water-temperature"
+								formControlName="targetWaterTemperature" />
+						</div>
+
+						<div class="form-field-errors">
+							<mat-error
+								id="targetWaterTemperature-error-min"
+								class="targetWaterTemperature-error error-min"
+								*ngIf="needShowError(targetWaterTemperatureControl, 'min')">
+								{{
+									"poolUsage.waterTemperature.min" | translate:targetWaterTemperatureControl.errors?.['min']
+
+								}}
+							</mat-error>
+
+							<mat-error
+								id="targetWaterTemperature-error-max"
+								class="targetWaterTemperature-error error-max"
+								*ngIf="needShowError(targetWaterTemperatureControl, 'max')">
+								{{ "poolUsage.waterTemperature.max" | translate:targetWaterTemperatureControl.errors?.['max'] }}
+							</mat-error>
+
+							<mat-error
+								id="targetWaterTemperature-error-required"
+								class="targetWaterTemperature-error error-required"
+								*ngIf="
+									needShowError(targetWaterTemperatureControl, 'required')
+								">
+								{{ "poolUsage.waterTemperature.required" | translate }}
+							</mat-error>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+
+		<li
+			class="section"
+			*ngIf="poolUsageForm?.controls?.['filtrationTime'] as filtrationTimeControl">
+			<fcc-title
+				class="section_title"
+				[title]="'poolUsage.filtrationTime.title' | translate" />
+			<div class="section_content">
+				<fcc-message
+					background="primary"
+					color="primary"
+					icon="bookmarks"
+					[hasClose]="false"
+					messageTitle="poolUsage.filtrationTime.help1.title"
+					actionLabel="poolUsage.filtrationTime.help1.action"
+					(onClickAction)="showCalculateInfo()" />
+
+				<fcc-message
+					background="primary"
+					color="primary"
+					icon="bookmarks"
+					messageTitle="poolUsage.filtrationTime.help2.title"
+					description="poolUsage.filtrationTime.help2.description" />
+
+				<div
+					class="form-fields"
+					[ngClass]="
+						canShowAverageTariff()
+							? 'form-fields-horizontal'
+							: 'form-fields-vertical'
+					">
+					<div class="form-field">
+						<div class="form-field_label">
+							{{ "poolUsage.filtrationTime.label" | translate }}
+						</div>
+						<mat-form-field class="filtrationTime">
+							<input
+								type="number"
+								matInput
+								[min]="1"
+								[max]="24"
+								required
+								id="filtrationTime-input"
+								formControlName="filtrationTime"
+								pattern="[0-9]*"
+								step="1"
+								(keypress)="preventPressDecimals($event)"
+								(input)="preventSetDecimals($event)" />
+							<mat-hint>{{
+								"poolUsage.filtrationTime.hint" | translate
+							}}</mat-hint>
+						</mat-form-field>
+						<mat-error
+							id="filtrationTime-error-min"
+							class="filtrationTime-error error-min"
+							*ngIf="needShowError(filtrationTimeControl, 'min')">
+							{{
+									"poolUsage.filtrationTime.min" | translate:filtrationTimeControl.errors?.['min']
+
+							}}
+						</mat-error>
+
+						<mat-error
+							id="filtrationTime-error-max"
+							class="filtrationTime-error error-max"
+							*ngIf="needShowError(filtrationTimeControl, 'max')">
+							{{ "poolUsage.filtrationTime.max" | translate:filtrationTimeControl.errors?.['max'] }}
+						</mat-error>
+
+						<mat-error
+							id="filtrationTime-error-required"
+							class="filtrationTime-error error-required"
+							*ngIf="needShowError(filtrationTimeControl, 'required')">
+							{{ "poolUsage.filtrationTime.required" | translate }}
+						</mat-error>
+					</div>
+					<div class="calculation-result" *ngIf="canShowAverageTariff()">
+						<div class="label">
+							{{
+								"poolUsage.filtrationTime.calculation.label"
+									| translate
+										: {
+												price: averageTariff | currency
+										  }
+							}}
+						</div>
+						<!-- [ : currencyCode [ : display [ : digitsInfo [ : locale ] ] ] ]  -->
+						<div class="hint">
+							{{ "poolUsage.filtrationTime.calculation.hint" | translate }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+
+		<li
+			class="section"
+			*ngIf="poolUsageForm?.controls?.['powerSupplyType'] as powerSupplyTypeControl">
+			<fcc-title
+				class="section_title"
+				[title]="'poolUsage.powerSupplyType.title' | translate" />
+			<div class="section_content">
+				<div class="form-fields form-fields-vertical">
+					<div class="form-field">
+						<div class="form-field_label">
+							{{ "poolUsage.powerSupplyType.label" | translate }}
+						</div>
+						<mat-form-field class="powerSupplyType">
+							<mat-select
+								formControlName="powerSupplyType"
+								id="powerSupplyType-input">
+								<mat-option
+									*ngFor="let option of powerSupplyOptions"
+									[value]="option">
+									{{
+										"poolUsage.powerSupplyType.options." + option | translate
+									}}
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+		</li>
+
+		<li
+			class="section"
+			*ngIf="poolUsageForm?.controls?.['attendance'] as attendanceControl">
+			<fcc-title
+				class="section_title"
+				[title]="'poolUsage.attendance.title' | translate" />
+			<div class="section_content">
+				<div class="form-fields form-fields-vertical">
+					<div class="form-field">
+						<div class="form-field_label">
+							{{ "poolUsage.attendance.label" | translate }}
+						</div>
+						<mat-form-field class="attendance">
+							<mat-select formControlName="attendance" id="attendance-input">
+								<mat-option
+									*ngFor="let option of attendanceOptions"
+									[value]="option">
+									{{ "poolUsage.attendance.options." + option | translate }}
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+					</div>
+				</div>
+				<div
+					*ngIf="
+						poolUsageForm?.get(
+							'collectiveAttendance'
+						) as collectiveAttendanceGroup
+					"
+					class="form-fields form-fields-vertical"
+					formGroupName="collectiveAttendance">
+					<div
+						class="form-field"
+						*ngIf="
+							poolUsageForm?.get(
+								'collectiveAttendance.spa'
+							) as collectiveAttendanceSpaControl
+						">
+						<fcc-yes-no-question
+							formControlName="spa"
+							[hasError]="needShowError(collectiveAttendanceSpaControl)"
+							[questionText]="
+								'poolUsage.attendance.collectiveAttendance.spa' | translate
+							" />
+						<mat-error
+							id="collectiveAttendanceSpa-error-required"
+							class="collectiveAttendanceSpa-error error-required"
+							*ngIf="needShowError(collectiveAttendanceSpaControl, 'required')">
+							{{
+								"poolUsage.attendance.collectiveAttendance.required" | translate
+							}}
+						</mat-error>
+					</div>
+					<div
+						class="form-field"
+						*ngIf="
+							poolUsageForm?.get(
+								'collectiveAttendance.river'
+							) as collectiveAttendanceRiverControl
+						">
+						<fcc-yes-no-question
+							formControlName="river"
+							[hasError]="needShowError(collectiveAttendanceRiverControl)"
+							[questionText]="
+								'poolUsage.attendance.collectiveAttendance.river' | translate
+							" />
+
+						<mat-error
+							id="collectiveAttendanceRiver-error-required"
+							class="collectiveAttendanceRiver-error error-required"
+							*ngIf="
+								needShowError(collectiveAttendanceRiverControl, 'required')
+							">
+							{{
+								"poolUsage.attendance.collectiveAttendance.required" | translate
+							}}
+						</mat-error>
+					</div>
+					<div
+						class="form-field"
+						*ngIf="
+							poolUsageForm?.get(
+								'collectiveAttendance.waves'
+							) as collectiveAttendanceWavesControl
+						">
+						<fcc-yes-no-question
+							formControlName="waves"
+							[hasError]="needShowError(collectiveAttendanceWavesControl)"
+							[questionText]="
+								'poolUsage.attendance.collectiveAttendance.waves' | translate
+							" />
+						<mat-error
+							id="collectiveAttendanceWaves-error-required"
+							class="collectiveAttendanceWaves-error error-required"
+							*ngIf="
+								needShowError(collectiveAttendanceWavesControl, 'required')
+							">
+							{{
+								"poolUsage.attendance.collectiveAttendance.required" | translate
+							}}
+						</mat-error>
+					</div>
+					<div
+						class="form-field"
+						*ngIf="
+							poolUsageForm?.get(
+								'collectiveAttendance.slides'
+							) as collectiveAttendanceSlidesControl
+						">
+						<fcc-yes-no-question
+							formControlName="slides"
+							[hasError]="needShowError(collectiveAttendanceSlidesControl)"
+							[questionText]="
+								'poolUsage.attendance.collectiveAttendance.slides' | translate
+							" />
+						<mat-error
+							id="collectiveAttendanceSlides-error-required"
+							class="collectiveAttendanceSlides-error error-required"
+							*ngIf="
+								needShowError(collectiveAttendanceSlidesControl, 'required')
+							">
+							{{
+								"poolUsage.attendance.collectiveAttendance.required" | translate
+							}}
+						</mat-error>
+					</div>
+				</div>
+			</div>
+		</li>
+
+		<li
+			class="section"
+			*ngIf="poolUsageForm?.controls?.['filtrationType'] as filtrationTypeControl">
+			<fcc-title
+				class="section_title"
+				[title]="'poolUsage.filtrationType.title' | translate" />
+			<div class="section_content">
+				<div class="form-fields form-fields-vertical">
+					<div class="form-field">
+						<div class="form-field_label">
+							{{ "poolUsage.filtrationType.label" | translate }}
+						</div>
+						<mat-form-field class="filtrationType">
+							<mat-select
+								formControlName="filtrationType"
+								id="filtrationType-input">
+								<mat-option
+									*ngFor="let option of filtrationTypeOptions"
+									[value]="option">
+									{{ "poolUsage.filtrationType.options." + option | translate }}
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ol>
+</div>

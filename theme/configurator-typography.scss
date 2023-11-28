@@ -1,0 +1,125 @@
+@import "@fontsource/work-sans";
+
+/* XS/01 Text */
+$xs-01-text: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 12px,
+	$font-weight: 400,
+	$line-height: 18px,
+);
+
+/* XS/02 Caps */
+$xs-02-caps: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 13px,
+	$font-weight: 500,
+	$line-height: 27px,
+	$letter-spacing: 0.24px,
+);
+
+// S/01 Text;
+$s-01-text: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 13px,
+	$font-weight: 400,
+	$line-height: 20px,
+	$letter-spacing: 0em,
+);
+
+//styleName: S/03 Semibold;
+$s-03-semibold: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 13px,
+	$font-weight: 600,
+	$line-height: 20px,
+	$letter-spacing: 0em,
+);
+
+/* M/01 Text */
+$m-01-text: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 15px,
+	$font-weight: 400,
+	$line-height: 22px,
+);
+
+/* M/02 Caps */
+$m-02-caps: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 15px,
+	$font-weight: 500,
+	$line-height: 22px,
+);
+
+/* M/03 Inverse */
+$m-03-inverse: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 15px,
+	$font-weight: 500,
+	$line-height: 22px,
+);
+
+/* M/04 Semibold */
+$m-04-semibold: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 15px,
+	$font-weight: 600,
+	$line-height: 22px,
+);
+
+/* L/01 Text */
+$l-01-text: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 18px,
+	$font-weight: 400,
+	$line-height: 24px,
+);
+
+/* L/03 Semibold */
+$l-03-semibold: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 18px,
+	$font-weight: 600,
+	$line-height: 24px,
+);
+
+/* XL/01 text */
+$xl-01-text: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 24px,
+	$font-weight: 600,
+	$line-height: 30px,
+);
+
+/* XXL/01 Semibold */
+$xxl-01-semibold: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 32px,
+	$font-weight: 600,
+	$line-height: 36px,
+);
+
+/* XXXL/01 Text */
+$xxxl-01-text: mat.define-typography-level(
+	$font-family: Work Sans,
+	$font-size: 42px,
+	$font-weight: 400,
+	$line-height: 50px,
+);
+
+$typography: mat.define-typography-config(
+	$font-family: Work Sans,
+
+	$headline-1: $xxxl-01-text,
+	$headline-2: $xxl-01-semibold,
+	$headline-3: $xl-01-text,
+	$headline-4: $l-03-semibold,
+	$headline-5: $m-04-semibold,
+	$headline-6: $m-03-inverse,
+	$subtitle-1: $m-03-inverse,
+	$subtitle-2: $m-04-semibold,
+	$body-1: $m-02-caps,
+	$body-2: $m-01-text,
+	$caption: $s-01-text,
+);
+// $button: mat.define-typography-level(24px, 32px, 400),,

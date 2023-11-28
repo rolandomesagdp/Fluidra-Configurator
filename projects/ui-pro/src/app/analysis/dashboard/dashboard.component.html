@@ -1,0 +1,14 @@
+<section class="section container">
+	<h2 class="section_title mat-headline-1">
+		{{ "dashboard.title" | translate }}
+	</h2>
+
+	<div class="section_content content">
+		<fcc-new-analysis
+			(onSubmit)="saveNewAnalysis($event)"
+			[saving]="savingAnalysis"
+			[professional]="isAdminUser()" />
+
+		<fcc-analysis-history (onSeeAllClicked)="seeAllAnalysis()" />
+	</div>
+</section>

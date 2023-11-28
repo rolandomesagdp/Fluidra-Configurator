@@ -1,0 +1,20 @@
+<ng-container *ngIf="toolbarEvents.mainToolbarDisplayEvent$ | async">
+   <mat-toolbar id="fcp_main_toolbar" class="fcp-toolbar" color="primary">
+      <mat-toolbar-row id="fcp-toolbar-primary" class="fcp-toolbar-primary">
+         <fcp-fluidra-logo class="logo"></fcp-fluidra-logo>
+         
+         <fcp-navigation-menu class="navigation_menu"></fcp-navigation-menu>
+
+         <div class="settings">
+
+            <fcp-language-selector class="language_selector"></fcp-language-selector>
+
+            <fcp-user-profile-button></fcp-user-profile-button>
+         </div>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row id="fcp_secondary_toolbar" class="fcp-toolbar-secondary">
+         <fcp-configurator-logo></fcp-configurator-logo>
+      </mat-toolbar-row>
+   </mat-toolbar>
+</ng-container>

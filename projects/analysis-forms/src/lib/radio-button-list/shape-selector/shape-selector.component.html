@@ -1,0 +1,15 @@
+<div class="container">
+	<button
+		*ngFor="let option of options"
+		type="button"
+		class="button shape_button_test"
+		[ngClass]="{
+			selected: isSelected(option.key),
+			error: hasErrors(),
+			disabled: isDisabled()
+		}"
+		(click)="value = option.key">
+		<img class="image" src="assets/img/{{ option.key }}_shape.svg" />
+		{{ option.label | translate }}
+	</button>
+</div>

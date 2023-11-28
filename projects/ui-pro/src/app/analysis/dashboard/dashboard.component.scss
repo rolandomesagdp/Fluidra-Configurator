@@ -1,0 +1,29 @@
+@import "theme/configurator-palette";
+@import "theme/configurator-breakpoints";
+
+.container {
+	padding: 45px 15px;
+	@include max-width("sm") {
+		padding: 0;
+	}
+}
+
+.section {
+	background-color: $surfaces-light-50;
+	&_title {
+		margin-bottom: 32px;
+		@include max-width("sm") {
+			padding: 0 16px;
+		}
+	}
+	&_content {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 16px;
+		align-items: stretch;
+		vertical-align: middle;
+		align-content: center;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,69 @@
+<mat-card class="analysis_card" *ngIf="analysis">
+	<div class="analysis_data">
+		<div class="analysis_field">
+			<mat-label class="analysis_field_label">{{
+				"dashboard.analysis.name.label" | translate
+			}}</mat-label>
+			<span class="analysis_field_value"> {{ analysis.name }}</span>
+		</div>
+		<mat-divider vertical></mat-divider>
+		<div class="analysis_field">
+			<mat-label class="analysis_field_label">{{
+				"dashboard.analysis.date" | translate
+			}}</mat-label>
+			<span class="analysis_field_value"> {{ analysis.date }}</span>
+		</div>
+      <fcc-draft-chip *ngIf="analysis.draft"></fcc-draft-chip>
+	</div>
+
+	<div class="analysis_actions">
+		<button
+			mat-button
+			color="primary"
+			class="action_button analysis_delete_button"
+			[title]="'dashboard.last_analysis.actions.delete' | translate"
+			id="analysis_delete_{{ analysis.id }}"
+			(click)="deleteAnalysis()">
+			{{ "dashboard.last_analysis.actions.delete" | translate }}
+			<mat-icon>delete_outline</mat-icon>
+		</button>
+		<button
+			mat-button
+			color="primary"
+			class="action_button analysis_full_view_button"
+			[title]="'dashboard.last_analysis.actions.fullView' | translate"
+			id="analysis_full_view_{{ analysis.id }}">
+			{{ "dashboard.last_analysis.actions.fullView" | translate }}
+			<mat-icon> arrow_outward</mat-icon>
+		</button>
+		<button
+			mat-button
+			color="primary"
+			class="action_button analysis_quick_view_button"
+			[title]="'dashboard.last_analysis.actions.quickView' | translate"
+			id="analysis_quick_view_{{ analysis.id }}"
+			(click)="showQuickViewDialog()">
+			{{ "dashboard.last_analysis.actions.quickView" | translate }}
+			<mat-icon>visibility_outline</mat-icon>
+		</button>
+		<button
+			mat-button
+			color="primary"
+			class="action_button analysis_edit_button"
+			[title]="'dashboard.last_analysis.actions.edit' | translate"
+			id="analysis_edit_{{ analysis.id }}">
+			{{ "dashboard.last_analysis.actions.edit" | translate }}
+			<mat-icon>edit_outline</mat-icon>
+		</button>
+		<button
+			mat-button
+			color="primary"
+			class="action_button analysis_duplicate_button"
+			[title]="'dashboard.last_analysis.actions.duplicate' | translate"
+			id="analysis_duplicate_{{ analysis.id }}"
+			(click)="duplicateAnalysis()">
+			{{ "dashboard.last_analysis.actions.duplicate" | translate }}
+			<mat-icon>content_copy_outline</mat-icon>
+		</button>
+	</div>
+</mat-card>
